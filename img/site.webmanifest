@@ -1,0 +1,25 @@
+{
+  "id": "/",
+  "name": "Independent Education",
+  "short_name": "Independent Edu",
+  "description": "Free study abroad counselling for Bangladeshi students.",
+  "lang": "en",
+  "dir": "ltr",
+  "start_url": "../?source=pwa",
+  "scope": "../",
+  "display": "standalone",
+  "display_override": ["window-controls-overlay", "standalone", "browser"],
+  "orientation": "any",
+  "background_color": "#ffffff",
+  "theme_color": "#10213f",
+  "categories": ["education"],
+  "icons": [
+    {"src": "icon-192.png", "sizes": "192x192", "type": "image/png"},
+    {"src": "icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any maskable"}
+  ],
+  "shortcuts": [
+    {"name": "Book free counselling", "short_name": "Counselling", "url": "../?source=pwa#contact", "icons": [{"src": "icon-192.png", "sizes": "192x192"}]},
+    {"name": "Find a university", "short_name": "Universities", "url": "../?source=pwa#find-university", "icons": [{"src": "icon-192.png", "sizes": "192x192"}]},
+    {"name": "Find a scholarship", "short_name": "Scholarships", "url": "../?source=pwa#find-scholarship", "icons": [{"src": "icon-192.png", "sizes": "192x192"}]}
+  ]
+}

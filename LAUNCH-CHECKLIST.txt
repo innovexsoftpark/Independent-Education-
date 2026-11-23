@@ -1,0 +1,41 @@
+INDEPENDENT EDUCATION - LAUNCH CHECKLIST
+========================================
+Everything in this package is ready. These are the only things still needed to go live.
+
+A. DECIDE (you)
+  [ ] 1. Buy the domain (for example independenteducation.com.bd or .com).
+  [ ] 2. Choose hosting:
+          - Plain website (fastest, cheapest): any cPanel hosting with PHP 8.  -> follow HOW-TO-UPLOAD.txt
+          - Editable website: WordPress hosting.  -> use independent-education-wordpress.zip
+            and its WORDPRESS-SETUP.txt instead of this folder.
+  [ ] 3. Send the domain to Claude. Claude puts it into every page, sitemap.xml, robots.txt and
+          llms.txt in one step (it currently says www.your-domain.com as a placeholder).
+          Doing it yourself: replace www.your-domain.com with your domain in those files.
+
+B. SET UP (about 30 minutes)
+  [ ] 4. Upload the files (HOW-TO-UPLOAD.txt). Do NOT upload the n8n-automation-DO-NOT-UPLOAD folder.
+  [ ] 5. Turn on free HTTPS (SSL) in the hosting control panel.
+  [ ] 6. Contact form straight to your inbox: get a free access key at web3forms.com for
+          info.independentedu@gmail.com and put it in WEB3FORMS_KEY (server-tracking/MAIL-SETUP.txt).
+          Until then the forms open the visitor's email app instead.
+  [ ] 7. Online applications and student portal (optional): server-tracking/PORTAL-SETUP.txt.
+          In ie-tracking-config.php:
+            - allowed_hosts: your domain, with and without www
+            - behind_cloudflare: true ONLY if you put the site behind Cloudflare, otherwise leave false
+            - keep data_dir OUTSIDE public_html
+            - create the staff password by opening server-tracking/admin.php once
+
+C. CHECK ON THE LIVE SITE (15 minutes)
+  [ ] 8. Open every page on a phone and a computer.
+  [ ] 9. Send a test enquiry, book a test appointment and submit a test application; check they arrive.
+  [ ] 10. Scan the WhatsApp QR code on the flyer: it should open a chat with +880 1913-179498.
+
+D. GET FOUND ON GOOGLE
+  [ ] 11. Google Search Console: add the domain and submit sitemap.xml (SEO-GUIDE.txt).
+  [ ] 12. Google Business Profile for the Banani office (GOOGLE-GROWTH-CHECKLIST.txt).
+  [ ] 13. Put the website link on the Facebook page and Instagram profile.
+
+KEEP IT ACCURATE
+  - Visa, work and post-study rules on the site were checked in November 2026 and change often.
+    Re-check the country descriptions and the "Know the rules" slide every few months.
+  - After changing the site, open sw.js and raise VERSION (ie-v1 -> ie-v2) so visitors get the new pages.

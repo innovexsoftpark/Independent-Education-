@@ -1,0 +1,143 @@
+INDEPENDENT EDUCATION - SEO GUIDE (November 2026)
+=================================================
+
+Search engines change their tools and rules often. If a step below doesn't
+match what you see, follow the official help pages (Google Search Central,
+Bing Webmaster Help).
+
+
+PART A - ALREADY BUILT INTO THE WEBSITE
+---------------------------------------
+- SEO page title (65-70 characters) and a meta description of about 160
+  characters, written for "study abroad consultancy Dhaka" searches.
+- One H1 heading, clear H2/H3 structure, descriptive image alt text, fast
+  loading (compressed images, lazy loading, caching rules in .htaccess).
+- Canonical URL and hreflang tags (stops duplicate-URL problems, e.g. with
+  and without www, or ?utm_ links).
+- Open Graph and X (Twitter) cards: good previews on Facebook, WhatsApp,
+  LinkedIn, Messenger and X.
+- Structured data (schema.org JSON-LD), which helps Google understand the business:
+    EducationalOrganization + LocalBusiness: name, logo, address, phones,
+      email, map link, social profiles, services offered (free counselling)
+    WebSite
+    FAQPage: the website's questions and answers
+  Test it at https://search.google.com/test/rich-results and
+  https://validator.schema.org after the site is live.
+  NOTE: Google currently shows FAQ rich results mainly for government and
+  health websites, so FAQ snippets may not appear in search. The FAQ data
+  still helps search engines and AI assistants understand the page.
+- robots.txt (lets search engines crawl the site, keeps the server-tracking
+  folder out) and sitemap.xml (with image entries).
+- llms.txt: a plain-text summary for AI search tools and assistants. This is
+  a new, informal standard. Some AI tools may read it, but there is no
+  guarantee any of them use it.
+- IndexNow key file (the .txt file with a long random name in the top folder):
+  lets you tell Bing and other IndexNow search engines about updates
+  instantly (see B4).
+- Search Console, Bing Webmaster and Meta verification codes can be pasted
+  into IE_MARKETING (see GOOGLE-SETUP.txt and NEW-TOOLS-SETUP.txt).
+- Core Web Vitals (page speed) are reported to GA4 when GA4 is switched on.
+- 404 page, HTTPS redirect and security headers (.htaccess).
+
+
+PART B - WHAT YOU NEED TO DO
+----------------------------
+B1. PUT YOUR REAL DOMAIN IN (most important)
+    Replace  www.your-domain.com  with your real domain (for example
+    www.independenteducation.com.bd) in these files:
+      index.html, robots.txt, sitemap.xml, llms.txt
+    Any text editor with "Find and Replace" works (Notepad++, VS Code).
+    Decide on ONE version (with www or without) and use it everywhere.
+    Or send the domain to Claude and it can be filled in for you.
+
+B2. GOOGLE SEARCH CONSOLE (free)
+    - search.google.com/search-console > Add property > Domain or URL prefix.
+    - Verify (DNS record, or the HTML tag: paste the code into
+      GOOGLE_SITE_VERIFICATION in IE_MARKETING).
+    - Sitemaps > submit  sitemap.xml
+    - URL inspection > enter your home page > Request indexing.
+    - Check "Pages", "Core Web Vitals" and "Performance" every month.
+
+B3. BING WEBMASTER TOOLS (free; also feeds Microsoft Copilot search)
+    - bing.com/webmasters > Import from Google Search Console (easiest), or
+      add the site and paste the code into BING_SITE_VERIFICATION.
+    - Submit sitemap.xml.
+
+B4. INDEXNOW (instant update notice to Bing, Yandex and others)
+    After the site is live and every time you change it, open this link in
+    your browser (with your domain and the key from the .txt file name):
+      https://api.indexnow.org/indexnow?url=https://www.your-domain.com/&key=YOUR-KEY
+    A blank page or "200/202" response means it worked. Google does not use
+    IndexNow; for Google, use URL inspection in Search Console.
+
+B5. GOOGLE BUSINESS PROFILE (the biggest win for local searches like
+    "study abroad consultant Banani")
+    - business.google.com > add "Independent Education", category such as
+      "Educational consultant", the same address, phones and hours as the
+      website (keep them identical everywhere).
+    - Add office photos, services, the website link and a booking link.
+    - Ask real students to leave reviews and reply to every review.
+      Never buy or write fake reviews (it breaks Google's rules and can
+      get the profile suspended).
+    - Post updates (intakes, events, scholarships) regularly.
+    - Paste the Place ID into GOOGLE_PLACE_ID to show the "Review us on
+      Google" button on the website.
+    - Add your office days to the website too (only the hours are listed now).
+
+B6. KEYWORDS TO TARGET
+    These are suggestions based on how students typically search, not
+    measured search volumes. Check real volumes in Google Keyword Planner
+    (free with a Google Ads account) or Search Console's Performance report.
+      study abroad consultancy in Dhaka / Banani
+      study abroad consultant Bangladesh
+      student visa consultant Dhaka
+      study in Australia / UK / Canada / Ireland / Malaysia / Türkiye from Bangladesh
+      scholarships for Bangladeshi students
+      IELTS score for UK / Canada / Australia
+      study in Europe without IELTS (only if you can answer it honestly)
+      Bangla searches, e.g. বিদেশে পড়াশোনা, স্টুডেন্ট ভিসা
+    Use them naturally in page text, Facebook posts and YouTube titles.
+    Never stuff keywords.
+
+B7. CONTENT (helps rankings over time)
+    The website is one page. To rank for more searches, add separate pages
+    or blog posts, each answering one question well, for example:
+      "Study in Canada from Bangladesh: costs, intakes and visa steps"
+      "Chevening scholarship guide for Bangladeshi applicants"
+      "IELTS vs PTE: which test should you take?"
+      "Student visa document checklist for the UK"
+    Update dates and facts every intake. Add a Bangla version of the main
+    page later. It can bring many Bangla searches. (Claude can build this.)
+
+B8. LINKS AND LISTINGS (off-page SEO)
+    - Use exactly the same name, address and phone everywhere (NAP).
+    - List the business in reputable Bangladeshi business directories and
+      maps (Google, Bing Places, Apple Business Connect).
+    - Link the website from Facebook, Instagram, LinkedIn, TikTok and X bios.
+    - Partner universities, events and local news can link to you. Never buy
+      links or join link schemes.
+
+B9. MEASURE
+    - Search Console: clicks, impressions, top search terms.
+    - GA4: visitors from "Organic Search", leads (generate_lead).
+    - Review monthly and improve the pages that get impressions but few
+      clicks (rewrite their titles and descriptions).
+
+AVOID
+    - Hidden text, keyword stuffing, copied content, fake reviews, bought links.
+    - Changing the domain or the page address once Google has indexed it,
+      unless you set up 301 redirects.
+
+B10. SEMRUSH (paid, with a limited free account)
+    Use it for keyword research, competitor analysis and site audits. Nothing
+    needs to be added to the website.
+    - Projects > Site Audit: enter your domain. It crawls the site and lists
+      SEO problems.
+    - Keyword Magic Tool: check volumes for the keywords in B6. Set the
+      database to Bangladesh where available.
+    - Domain Overview / Organic Research: see which keywords other Dhaka
+      study-abroad consultancies rank for.
+    - Position Tracking: follow your rankings for 10-20 main keywords monthly.
+    - Connect Google Search Console and GA4 in Semrush for more accurate data.
+    Free alternatives: Google Search Console (Performance report) and Google
+    Keyword Planner.

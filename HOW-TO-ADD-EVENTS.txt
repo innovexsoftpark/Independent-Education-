@@ -1,0 +1,39 @@
+INDEPENDENT EDUCATION - HOW TO ADD EVENTS
+==========================================
+The Events page (events.html) shows a list of upcoming events. The list is empty until
+you add real events. Past events hide themselves automatically the day after they end.
+
+WHERE
+  Plain website: open events.html in a text editor and find the line
+      <script type="application/json" id="events-data">[]</script>
+  WordPress: edit the Events page and find the same line in its Custom HTML block.
+
+HOW
+  Put your events between the square brackets [ ], separated by commas. One event:
+
+  {"title":"UK Spot Admission Day",
+   "type":"spot",
+   "format":"In person",
+   "date":"2027-01-23",
+   "time":"11:00 AM – 5:00 PM",
+   "venue":"Independent Education, 89/2 Siraj Tower, Banani",
+   "city":"Dhaka",
+   "destinations":["United Kingdom"],
+   "description":"Meet UK university representatives and get your documents reviewed.",
+   "free":true,
+   "register":""}
+
+  type ........... expo, spot, info, ielts or webinar
+  format ......... "In person" or "Online"
+  date ........... year-month-day, e.g. "2027-01-23"
+  destinations ... any of: Australia, United Kingdom, Canada, USA, New Zealand, Ireland,
+                   Europe, South Korea, Malaysia, Türkiye, China
+  free ........... true or false (leave it out if you're not sure)
+  register ....... a link to an outside registration page, or "" to use the website's own form
+
+  Two events:  [ {...first event...}, {...second event...} ]
+
+CHECK
+  Use straight double quotes ("), not curly quotes. After saving, open the Events page:
+  if the list doesn't appear, a comma or quote is usually missing.
+  Registrations arrive the same way as other enquiries (email, CRM or WhatsApp).

@@ -1,0 +1,73 @@
+/* Independent Education design tokens.
+   Extracted unchanged from css/site.css (the live site's stylesheet).
+   css/site.css stays the source the pages use; this file documents the values
+   so new pages and components can reuse them. */
+
+:root {
+  --ink:#10213f;
+  --ink-2:#1d6fb0;
+  --sun:#ff914d;
+  --sun-ink:#2e1300;
+  --blue:#38b6ff;
+  --green:#7ed957;
+  --bg:#f6f8fc;
+  --surface:#ffffff;
+  --line:#dde3ee;
+  --muted:#56627a;
+  --fg:#121a2b;
+  --band:#10213f;
+  --band-fg:#eef2fa;
+  --chip:#e8eefb;
+  --ok:#3fa52a;
+  --header:#dff2ff;
+  --header-line:#b9e2fb;
+  --display:"Poppins","Segoe UI",system-ui,sans-serif;
+  --body:"Poppins","Segoe UI",system-ui,sans-serif;
+  --r:14px;
+}
+
+/* Dark mode follows the visitor's system setting unless they picked light. */
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --ink:#dbe5ff;
+    --ink-2:#7fcfff;
+    --sun:#ff9d5e;
+    --sun-ink:#2e1300;
+    --blue:#5cc4ff;
+    --green:#8fe36a;
+    --bg:#0b1222;
+    --surface:#121c33;
+    --line:#26334f;
+    --muted:#9aa7c2;
+    --fg:#e8edf8;
+    --band:#08101f;
+    --band-fg:#e8edf8;
+    --chip:#1a2848;
+    --ok:#8fe36a;
+    --header:#123a5c;
+    --header-line:#1f5580;
+    color-scheme:dark;
+  }
+}
+
+/* Dark mode chosen with the site's theme switch. */
+[data-theme="dark"] {
+  --ink:#dbe5ff;
+  --ink-2:#7fcfff;
+  --sun:#ff9d5e;
+  --sun-ink:#2e1300;
+  --blue:#5cc4ff;
+  --green:#8fe36a;
+  --bg:#0b1222;
+  --surface:#121c33;
+  --line:#26334f;
+  --muted:#9aa7c2;
+  --fg:#e8edf8;
+  --band:#08101f;
+  --band-fg:#e8edf8;
+  --chip:#1a2848;
+  --ok:#8fe36a;
+  --header:#123a5c;
+  --header-line:#1f5580;
+  color-scheme:dark;
+}

@@ -1,0 +1,126 @@
+INDEPENDENT EDUCATION - GOOGLE TRACKING, LEADS AND VISIBILITY CHECKLIST (November 2026)
+=====================================================================================
+
+Tick each box as you finish it. Google changes its menus often; if a step
+does not match what you see, follow Google's own help pages.
+
+
+01  COMPLETE GOOGLE TRACKING
+----------------------------
+[ ] 1. Install GA4
+       analytics.google.com > Admin > Create property > Web stream.
+       Copy the Measurement ID (G-XXXXXXXXXX) and paste it into index.html:
+         GA4_ID: "G-XXXXXXXXXX"      (search for "const IE_MARKETING")
+       GA4 loads only after a visitor clicks "Accept" on the cookie notice.
+       Full steps: server-tracking/GOOGLE-SETUP.txt
+
+[ ] 2. Verify Google Search Console
+       search.google.com/search-console > Add property > "URL prefix" >
+       "HTML tag". Copy only the content="..." value and paste it into:
+         GOOGLE_SITE_VERIFICATION: "abc123..."
+       Upload the site, then click Verify.
+       Then: Sitemaps > submit  https://www.your-domain.com/sitemap.xml
+       (the sitemap now also lists the 4 guide pages).
+       Link Search Console to GA4: GA4 Admin > Product links > Search Console.
+
+[ ] 3. Mark lead conversions as KEY EVENTS in GA4
+       GA4 > Admin > Data display > Events (or "Key events"). Events appear
+       there about 24 hours after they first happen, so send one test enquiry
+       first. Then switch on "Mark as key event" for:
+
+         generate_lead        every enquiry: contact form, Free Quote form,
+                              chat-box form (form name is in "content_name":
+                              "Contact form", "Free quote form", ...)
+         book_counselling     the counselling booking form in the chat box
+         book_appointment     click on your online booking page (BOOKING_URL)
+         contact_whatsapp     WhatsApp clicks (optional: many clicks are not
+                              real enquiries; you can keep it as a normal event)
+         qualify_lead         sent by convert.php when the CRM marks a lead qualified
+         close_convert_lead   sent by convert.php when a student enrols
+
+       Optional: Admin > Custom definitions > create event-scoped dimensions
+       "content_name", "destination" and "study_level" to see which form and
+       which country bring the most leads.
+
+[ ] 4. Google Ads (only if you run ads)
+       Google Ads > Goals > Conversions > Import > Google Analytics 4 >
+       choose generate_lead (and qualify_lead). Or use GOOGLE_ADS_ID and
+       GOOGLE_ADS_LEAD_LABEL in IE_MARKETING (GOOGLE-SETUP.txt).
+
+[ ] 5. Test
+       GA4 > Admin > DebugView, or Reports > Realtime. Accept cookies on the
+       site, send a test Free Quote, and check that generate_lead appears.
+       Never put names, phone numbers or emails into GA4: the website already
+       keeps them out of GA4 events.
+
+
+02  IMPROVE LEAD GENERATION
+---------------------------
+[x] WhatsApp floating button ... already on the site (bottom right; 4 counsellor lines)
+[x] Get a Free Quote form ....... NEW in the Services section (#free-quote).
+                                  It asks for destination, level, start date and budget.
+[x] Consultation booking CTA .... "Book free counselling" in the header, hero, chat box,
+                                  guides and quote form. Add BOOKING_URL (Calendly or
+                                  Google appointment page) to show a "Pick a time" button too.
+[ ] Connect forms to CRM ........ Set LEAD_ENDPOINT:"/server-tracking/lead.php" in
+                                  IE_MARKETING, upload server-tracking, and fill in the
+                                  'hubspot' or 'zoho' section of ie-tracking-config.php.
+                                  The contact form, Free Quote form and chat-box form
+                                  then ALL go to the CRM (the contact form is new; it used
+                                  to open WhatsApp only). Each lead is marked with its
+                                  form type and gets a Hot/Warm/Cold grade.
+                                  Until LEAD_ENDPOINT is set, the forms fall back to WhatsApp.
+
+
+03  IMPROVE GOOGLE VISIBILITY
+-----------------------------
+[x] Page titles and meta descriptions: done for the home page and each guide.
+[x] SEO articles: 4 new pages in /guides/ (upload the whole "guides" folder):
+      guides/index.html
+      guides/choose-study-abroad-destination-bangladesh.html
+      guides/student-visa-document-checklist.html
+      guides/ielts-pte-toefl-duolingo-compared.html
+    Each has Article + Breadcrumb structured data, a canonical link and
+    links to official government / test-provider sources.
+    BEFORE PUBLISHING: a counsellor should read each guide and check it
+    against the linked official pages. Update the date at the top whenever
+    you change one. Out-of-date visa advice hurts trust and rankings.
+[ ] Replace www.your-domain.com with your real domain in index.html, every
+    guides/*.html file, sitemap.xml, robots.txt and llms.txt.
+[ ] Service pages: the services are currently sections on the home page
+    (#svc-career, #svc-visa, ...). Ranking for searches like "student visa
+    consultant Dhaka" is easier with a separate page per service. When you
+    are ready, we can turn each service into its own page with its own title,
+    FAQ and booking button.
+[ ] Publish 2-4 new guides a month. Ideas based on what students ask:
+      UK vs Canada for Bangladeshi students, study in Germany without
+      tuition fees, education loan from Bangladeshi banks, scholarship
+      deadlines this year, SOP writing tips, cost of living by city.
+    Write from real counselling experience. Do not copy other websites, and
+    do not publish AI text without a counsellor checking it.
+
+BUILD QUALITY BACKLINKS (done outside the website; no code can do this)
+    Good links come from real, relevant websites. Start with:
+[ ] Google Business Profile: complete it fully, same name/address/phone as
+    the site, add photos, ask real students for reviews (never buy reviews
+    or write them yourself).
+[ ] Universities you represent: ask to be listed on their "find an agent /
+    representative" page with a link to your website.
+[ ] Professional bodies or training you hold (for example British Council
+    agent training, ICEF, PIER/QEAC): many list certified agents with links.
+    Only claim memberships you actually have.
+[ ] Bangladeshi business directories and the local chamber of commerce.
+[ ] Education fairs and seminars you run or join: ask the organiser to link
+    to your event page.
+[ ] Guest articles or interviews in Bangladeshi newspapers' education
+    sections, student blogs and alumni groups (useful content, not adverts).
+[ ] Your social profiles (Facebook, Instagram, LinkedIn, X, TikTok, YouTube):
+    put the website link in each bio.
+    AVOID: buying links, link farms, "1000 backlinks" packages, and swapping
+    links with unrelated sites. Google can lower your ranking for these.
+    Track links in Search Console > Links, and in Semrush (SEO-GUIDE.txt B10).
+
+MONTHLY CHECK (15 minutes)
+    Search Console: clicks, top search queries, pages with errors.
+    GA4: users by source, generate_lead by source and form, qualify_lead
+    and close_convert_lead (which channels bring enrolled students).

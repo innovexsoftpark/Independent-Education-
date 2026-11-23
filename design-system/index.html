@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Design system | Independent Education</title>
+<link rel="stylesheet" href="../css/site.css">
+<style>
+  /* Page-only layout for this reference sheet. Colours come from the site tokens. */
+  body{background:var(--bg);color:var(--fg);font-family:var(--body);margin:0}
+  .ds{max-width:1160px;margin:0 auto;padding:48px 16px 80px}
+  .ds h1{font-size:clamp(1.9rem,4vw,2.8rem);margin:0 0 8px;color:var(--ink)}
+  .ds h2{font-size:clamp(1.3rem,2.4vw,1.7rem);margin:48px 0 16px;color:var(--ink)}
+  .ds p.note{color:var(--muted);max-width:60ch}
+  .sw{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:12px}
+  .sw div{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);overflow:hidden;font-size:13px}
+  .sw i{display:block;height:64px}
+  .sw b,.sw code{display:block;padding:6px 10px 0}
+  .sw code{padding-bottom:10px;color:var(--muted)}
+  .row{display:flex;flex-wrap:wrap;gap:12px;align-items:center}
+  .leaf{width:120px;height:120px;background:var(--sun);border-radius:60px 14px 60px 14px}
+  .leaf.g{background:var(--green)}.leaf.b{background:var(--blue)}
+  .type p{margin:6px 0}
+  .demo-card{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:20px;max-width:360px}
+</style>
+</head>
+<body>
+<main class="ds">
+  <h1>Independent Education design system</h1>
+  <p class="note">A reference sheet for the colours, type and parts the website already uses. Every value here is read live from <code>css/site.css</code>, so this page always matches the site. Switch your device to dark mode to see the dark palette.</p>
+
+  <h2>Colours</h2>
+  <div class="sw" id="swatches"></div>
+
+  <h2>Type</h2>
+  <div class="type">
+    <p style="font-weight:800;font-size:2.4rem;color:var(--ink)">Poppins 800</p>
+    <p style="font-weight:700;font-size:1.8rem;color:var(--ink)">Poppins 700</p>
+    <p style="font-weight:600;font-size:1.3rem">Poppins 600</p>
+    <p style="font-weight:500">Poppins 500</p>
+    <p style="font-weight:400;color:var(--muted)">Poppins 400, muted body text</p>
+  </div>
+
+  <h2>Buttons</h2>
+  <div class="row">
+    <a class="btn btn-sun" href="#">btn btn-sun</a>
+    <a class="btn btn-line" href="#">btn btn-line</a>
+  </div>
+  <p class="note">Hero buttons (they use the hero's own --lk colour):</p>
+  <div class="row lhero" style="background:none;padding:0;min-height:0">
+    <a class="btn lbtn-ink" href="#">btn lbtn-ink</a>
+    <a class="btn lbtn-line" href="#">btn lbtn-line</a>
+  </div>
+
+  <h2>Leaf shape</h2>
+  <p class="note">The rounded "leaf" corner used on photos and badges.</p>
+  <div class="row"><span class="leaf"></span><span class="leaf g"></span><span class="leaf b"></span></div>
+
+  <h2>Card</h2>
+  <div class="demo-card">
+    <strong style="color:var(--ink)">Card title</strong>
+    <p style="color:var(--muted);margin:8px 0 0">Cards sit on the surface colour with a line border and the shared corner radius.</p>
+  </div>
+</main>
+<script>
+  // Build the colour swatches from the live CSS variables so they always match site.css.
+  var names=["ink","ink-2","sun","sun-ink","blue","green","bg","surface","line","muted","fg","band","band-fg","chip","ok","header","header-line"];
+  var cs=getComputedStyle(document.documentElement), box=document.getElementById("swatches");
+  names.forEach(function(n){
+    var v=cs.getPropertyValue("--"+n).trim(), d=document.createElement("div");
+    d.innerHTML='<i style="background:var(--'+n+')"></i><b>--'+n+'</b><code>'+v+'</code>';
+    box.appendChild(d);
+  });
+</script>
+</body>
+</html>
