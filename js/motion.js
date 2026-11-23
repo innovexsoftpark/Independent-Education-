@@ -82,16 +82,7 @@
         badges on step lists. Both are aria-hidden and count up when seen. */
   var counters = [];
   var groups = new Map();
-  Array.prototype.forEach.call(d.querySelectorAll('main .card.nx'), function (c) {
-    var p = c.parentNode, k = (groups.get(p) || 0) + 1;
-    groups.set(p, k);
-    var n = deco('span', 'ie-num');
-    n.textContent = '00';
-    n.setAttribute('data-to', String(k));
-    n.setAttribute('data-pad', '2');
-    c.appendChild(n);
-    counters.push(n);
-  });
+  // The "01, 02 ..." numbers on feature cards were removed at the owner's request (2026-11-23).
   Array.prototype.forEach.call(d.querySelectorAll('main ol.applist'), function (ol) {
     var k = 0;
     Array.prototype.forEach.call(ol.children, function (li) {
