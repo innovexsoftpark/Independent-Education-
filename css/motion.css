@@ -149,3 +149,6 @@ main section > .wrap > h2:not(.vh){position:relative}
 @keyframes ieRise{from{opacity:0;transform:translateY(26px)}to{opacity:1;transform:none}}
 @keyframes ieIn{from{opacity:0;transform:translateY(30px) rotate(-12deg) scale(.6)}to{transform:none}}
 @keyframes ieGrow{from{transform:scaleX(0)}to{transform:scaleX(1)}}
+
+/* Social link cards (Facebook, Instagram, X, TikTok, LinkedIn): no left icon, owner request 2026-11-23 */
+.soc-line:is(.soc-fb,.soc-ig,.soc-x,.soc-tt,.soc-li) > .sic{display:none}
