@@ -153,3 +153,7 @@ main section > .wrap > h2:not(.vh){position:relative}
 /* Social link cards (Facebook, Instagram, X, TikTok, LinkedIn) removed from the contact list at the owner's request (2026-11-23).
    The same links are still in the social buttons and the footer. */
 .soc-line:is(.soc-fb,.soc-ig,.soc-x,.soc-tt,.soc-li){display:none}
+
+/* Counselling photo (counsellor + student, logo-shaped) removed from the contact column at the owner's request (2026-11-23).
+   The cards below it move up, so no empty space is left. */
+.contact .counselart{display:none}
