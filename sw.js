@@ -1,7 +1,7 @@
 /* Independent Education - service worker
    Makes the site installable and keeps it working on a weak or lost connection.
    When you change the website, change VERSION below so visitors get the new files. */
-const VERSION = 'ie-v2-multipage';
+const VERSION = 'ie-v3-new-logo';
 const CORE = ['/', '/offline.html', '/img/ie-mark-256.webp', '/img/favicon.ico', '/img/site.webmanifest'];
 
 self.addEventListener('install', e => {
