@@ -273,3 +273,7 @@ footer .fbrand .ie-ftag{margin:0;max-width:none;opacity:1;color:#fff;font-family
 .ie-reel .ie-rl-tag{margin:0}
 /* phones: keep the tag above the floating chat buttons */
 @media (max-width:699px){.ie-reel .ie-rl-copy{padding-bottom:84px}}
+/* header logo shown in the reel footer beside the tag (owner) */
+.ie-reel .ie-rl-tag{gap:16px}
+.ie-reel .ie-rl-logo{display:block;width:auto;height:86px;flex:0 0 auto;filter:drop-shadow(0 4px 14px rgba(0,0,0,.35))}
+@media (max-width:699px){.ie-reel .ie-rl-logo{height:62px}.ie-reel .ie-rl-tag{gap:12px}}
