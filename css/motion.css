@@ -163,3 +163,11 @@ main section > .wrap > h2:not(.vh){position:relative}
 #destinations .desthero .unifig img{border-radius:0;box-shadow:none;aspect-ratio:1/1}
 @media (min-width:900px){#destinations .desthero{grid-template-columns:minmax(0,1fr) minmax(0,520px);align-items:center;gap:40px}}
 @media (max-width:899px){#destinations .desthero .unifig{margin:0 auto}}
+
+/* Footer: tagline beside the logo (added by motion.js, owner request 2026-11-24) */
+footer .ie-flogo{display:flex;align-items:center;gap:18px}
+footer .ie-flogo>img{flex:0 0 auto}
+footer .fbrand .ie-ftag{margin:0;max-width:none;opacity:1;color:#fff;font-family:var(--display);font-weight:600;font-size:1.12rem;line-height:1.25;letter-spacing:.02em;text-transform:uppercase}
+footer .fbrand .ie-ftag{white-space:nowrap}
+@media (max-width:480px){footer .ie-flogo{gap:14px}footer .fbrand .ie-ftag{font-size:clamp(.78rem,4.1vw,1rem)}}
+@media (max-width:369px){footer .fbrand .ie-ftag{white-space:normal;font-size:.9rem}}

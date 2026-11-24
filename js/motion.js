@@ -19,6 +19,20 @@
     return e;
   }
 
+  /* 0. Footer: the owner's tagline "International Education Specialists"
+     beside the logo (owner request 2026-11-24). Adds text, changes none. */
+  var fimg = d.querySelector('footer .fbrand > img');
+  if (fimg && !d.querySelector('.ie-flogo')) {
+    var frow = d.createElement('div');
+    frow.className = 'ie-flogo';
+    fimg.parentNode.insertBefore(frow, fimg);
+    frow.appendChild(fimg);
+    var ftag = d.createElement('p');
+    ftag.className = 'ie-ftag';
+    ftag.innerHTML = 'International<br>Education Specialists';
+    frow.appendChild(ftag);
+  }
+
   /* 1. Living backgrounds for the home hero and the inner page headers */
   var hero = d.querySelector('.lhero');
   if (hero) {
