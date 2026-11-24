@@ -33,64 +33,76 @@
     frow.appendChild(ftag);
   }
 
-  /* R. Home page reel (owner request 2026-11-24): a full-width, auto-playing
-     destination reel above the home hero. Uses the site's own destination
-     photos and destination names; links go to the existing destination pages. */
+  /* R. Home page reel (owner request 2026-11-24, reworked the same day): a
+     full-width, auto-playing reel above the home hero. It tells the student's
+     story: destinations, interleaved with the site's own photos of a counsellor,
+     a student on a university campus, an information session and students
+     departing. Every word on a slide is wording already used on the site, and
+     every link goes to an existing page. */
   var lhero = d.querySelector('section.lhero');
   if (lhero && !d.querySelector('.ie-reel')) (function () {
+    var DEST = ['Study in', 'Explore destinations', 'destinations.html'];
+    /* [small image, large image, title, title link, object-position, eyebrow, button, button link, copy side] */
+    var dst = function (k, name, href, pos) { return ['img/' + k + '.webp', 'img/' + k + '-hd.webp', name, href, pos, DEST[0], DEST[1], DEST[2], '']; };
     var S = [
-      ['02333d4f4a', 'United Kingdom', 'study-in-the-uk.html', '60% 40%'],
-      ['f90488a779', 'USA', 'study-in-the-usa.html', '62% 40%'],
-      ['3d1d3c56b2', 'Canada', 'study-in-canada.html', '50% 45%'],
-      ['au-sydney', 'Australia', 'study-in-australia.html', '55% 55%'],
-      ['nz-auckland', 'New Zealand', 'study-in-new-zealand.html', '50% 45%'],
-      ['a50bd06c76', 'Ireland', 'study-in-ireland.html', '55% 50%'],
-      ['eu-collage', 'Europe', 'study-in-europe.html', '35% 45%'],
-      ['my-kl', 'Malaysia', 'study-in-malaysia.html', '50% 45%'],
-      ['0d5b335cea', 'South Korea', 'study-in-south-korea.html', '58% 45%'],
-      ['tr-istanbul', 'Türkiye', 'study-in-turkiye.html', '60% 50%'],
-      ['cn-greatwall', 'China', 'study-in-china.html', '62% 50%']
+      ['img/svc-career.webp', 'img/svc-career.webp', 'Free counselling', 'booking.html', '44% 40%', 'Honest advice', 'Book free counselling', 'booking.html', ''],
+      dst('02333d4f4a', 'United Kingdom', 'study-in-the-uk.html', '60% 40%'),
+      dst('f90488a779', 'USA', 'study-in-the-usa.html', '62% 40%'),
+      ['img/2b03291e37.webp', 'img/2b03291e37.webp', 'Find a university', 'find-a-university.html', '58% 30%', 'Careful applications', 'How to apply', 'how-to-apply.html', ''],
+      dst('3d1d3c56b2', 'Canada', 'study-in-canada.html', '50% 62%'),
+      dst('au-sydney', 'Australia', 'study-in-australia.html', '55% 55%'),
+      ['img/events.webp', 'img/events.webp', 'Events', 'events.html', '58% 40%', 'Many destinations, one team', 'Book free counselling', 'booking.html', ''],
+      dst('nz-auckland', 'New Zealand', 'study-in-new-zealand.html', '50% 45%'),
+      dst('a50bd06c76', 'Ireland', 'study-in-ireland.html', '55% 50%'),
+      dst('eu-collage', 'Europe', 'study-in-europe.html', '35% 45%'),
+      ['img/prepare-depart.webp', 'img/prepare-depart.webp', 'Preparing to depart', 'preparing-to-depart.html', '36% 0%', 'Help beyond your visa', 'Pre-departure support', 'pre-departure-support.html', 'r'],
+      dst('my-kl', 'Malaysia', 'study-in-malaysia.html', '50% 45%'),
+      dst('0d5b335cea', 'South Korea', 'study-in-south-korea.html', '58% 45%'),
+      dst('tr-istanbul', 'Türkiye', 'study-in-turkiye.html', '60% 50%'),
+      dst('cn-greatwall', 'China', 'study-in-china.html', '62% 50%')
     ];
-    var DUR = 5200;
+    var DUR = 3400;
     var small = (w.innerWidth || 1200) < 700;
-    var src = function (k) { return 'img/' + k + (small ? '' : '-hd') + '.webp'; };
+    var src = function (i) { return S[i][small ? 0 : 1]; };
     var reel = d.createElement('section');
     reel.className = 'ie-reel';
     reel.setAttribute('aria-roledescription', 'carousel');
-    reel.setAttribute('aria-label', 'Study destinations');
+    reel.setAttribute('aria-label', 'Study abroad with Independent Education');
     var stage = '<div class="ie-rl-stage" aria-hidden="true">';
     for (var k = 0; k < S.length; k++) {
-      stage += '<div class="ie-rl-s' + (k % 2 ? ' alt' : '') + '"><img alt="" decoding="async" style="object-position:' + S[k][3] + '"' +
-        (k === 0 ? ' src="' + src(S[0][0]) + '" fetchpriority="high"' : ' data-src="' + src(S[k][0]) + '"') + '></div>';
+      stage += '<div class="ie-rl-s' + (k % 2 ? ' alt' : '') + '"><img alt="" decoding="async" style="object-position:' + S[k][4] + '"' +
+        (k === 0 ? ' src="' + src(0) + '" fetchpriority="high"' : ' data-src="' + src(k) + '"') + '></div>';
     }
     stage += '</div>';
     var dots = '';
     for (k = 0; k < S.length; k++) {
-      dots += '<button type="button" class="ie-rl-dot" aria-label="' + S[k][1] + '"><i></i></button>';
+      dots += '<button type="button" class="ie-rl-dot" aria-label="' + S[k][2] + '"><i></i></button>';
     }
     reel.innerHTML = stage +
       '<div class="ie-rl-shade" aria-hidden="true"></div>' +
       '<div class="wrap ie-rl-copy">' +
         '<p class="ie-rl-tag"><span class="ie-rl-mark" aria-hidden="true"><i></i><i></i><i></i></span>International Education Specialists</p>' +
-        '<p class="ie-rl-eye">Study in</p>' +
-        '<div class="ie-rl-namebox"><a class="ie-rl-name" href="' + S[0][2] + '">' + S[0][1] + '</a></div>' +
-        '<a class="btn btn-sun ie-rl-cta" href="destinations.html">Explore destinations</a>' +
+        '<p class="ie-rl-eye"></p>' +
+        '<div class="ie-rl-namebox"><a class="ie-rl-name" href="' + S[0][3] + '"></a></div>' +
+        '<a class="btn btn-sun ie-rl-cta" href="' + S[0][7] + '"></a>' +
       '</div>' +
       '<div class="wrap ie-rl-ctl"><div class="ie-rl-dots">' + dots + '</div>' +
         '<button type="button" class="ie-rl-pp" aria-label="Pause the reel"><span class="pa" aria-hidden="true"></span><span class="pl" aria-hidden="true"></span></button></div>';
     lhero.parentNode.insertBefore(reel, lhero);
 
     var slides = reel.querySelectorAll('.ie-rl-s'), dl = reel.querySelectorAll('.ie-rl-dot');
-    var nm = reel.querySelector('.ie-rl-name'), pp = reel.querySelector('.ie-rl-pp');
+    var nm = reel.querySelector('.ie-rl-name'), eye = reel.querySelector('.ie-rl-eye'),
+      cta = reel.querySelector('.ie-rl-cta'), pp = reel.querySelector('.ie-rl-pp');
     var cur = -1, timer = 0, playing = !reduce, visible = true;
     var load = function (i) {
       var im = slides[i] && slides[i].querySelector('img');
       if (im && im.getAttribute('data-src')) { im.src = im.getAttribute('data-src'); im.removeAttribute('data-src'); }
     };
+    var replay = function (el) { el.classList.remove('in'); void el.offsetWidth; el.classList.add('in'); };
     function show(i) {
       i = (i + S.length) % S.length;
       if (i === cur) return;
-      load(i); load((i + 1) % S.length);
+      load(i); load((i + 1) % S.length); load((i + 2) % S.length);
       for (var j = 0; j < slides.length; j++) {
         slides[j].classList.toggle('is-on', j === i);
         slides[j].classList.toggle('was-on', j === cur);
@@ -99,9 +111,14 @@
         if (j === i) dl[j].setAttribute('aria-current', 'true'); else dl[j].removeAttribute('aria-current');
       }
       cur = i;
-      nm.classList.remove('in'); void nm.offsetWidth;
-      nm.textContent = S[i][1]; nm.href = S[i][2];
-      nm.classList.add('in');
+      var s = S[i];
+      eye.textContent = s[5];
+      nm.textContent = s[2]; nm.href = s[3];
+      cta.textContent = s[6]; cta.href = s[7];
+      reel.classList.toggle('is-long', s[2].length > 12);
+      reel.classList.toggle('is-r', s[8] === 'r');
+      reel.classList.toggle('is-story', s[5] !== DEST[0]);
+      replay(eye); replay(nm); replay(cta);
       reel.style.setProperty('--rl-accent', ['var(--sun)', 'var(--green)', 'var(--blue)'][i % 3]);
       schedule();
     }
