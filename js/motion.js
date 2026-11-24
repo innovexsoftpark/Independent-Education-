@@ -112,7 +112,8 @@
       }
       cur = i;
       var s = S[i];
-      eye.textContent = s[5];
+      /* owner request: the big title is not shown; the small line names the destination */
+      eye.textContent = s[5] === DEST[0] ? DEST[0] + ' ' + s[2] : s[5];
       nm.textContent = s[2]; nm.href = s[3];
       cta.textContent = s[6]; cta.href = s[7];
       reel.classList.toggle('is-long', s[2].length > 12);
