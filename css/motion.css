@@ -246,5 +246,7 @@ footer .fbrand .ie-ftag{margin:0;max-width:none;opacity:1;color:#fff;font-family
 /* small line under the tag removed on every slide too (owner request) */
 .ie-reel .ie-rl-eye{display:none}
 .ie-reel .ie-rl-tag{margin-bottom:22px}
+/* reel button removed on every slide (owner request 2026-11-24); do not re-add */
+.ie-reel .ie-rl-cta{display:none}
 /* Home hero: headline at half its original size (owner request) */
 .lhero .lt-o h1{font-size:clamp(1.2rem,2.4vw,2.2rem);line-height:1.12;max-width:24ch}

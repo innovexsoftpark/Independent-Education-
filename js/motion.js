@@ -37,7 +37,7 @@
      full-width, auto-playing reel above the home hero. It tells the student's
      story: destinations, interleaved with the site's own photos of a counsellor,
      a student on a university campus, an information session and students
-     departing. Order (owner request): a student first, the counsellor last. Every word on a slide is wording already used on the site, and
+     departing. Order (owner request): a student first, the events slide last (owner 2026-11-24). Every word on a slide is wording already used on the site, and
      every link goes to an existing page. */
   var lhero = d.querySelector('section.lhero');
   if (lhero && !d.querySelector('.ie-reel')) (function () {
@@ -50,7 +50,6 @@
       dst('f90488a779', 'USA', 'study-in-the-usa.html', '62% 40%'),
       dst('3d1d3c56b2', 'Canada', 'study-in-canada.html', '50% 62%'),
       dst('au-sydney', 'Australia', 'study-in-australia.html', '55% 55%'),
-      ['img/events.webp', 'img/events.webp', 'Events', 'events.html', '58% 40%', 'Many destinations, one team', 'Book free counselling', 'booking.html', ''],
       dst('nz-auckland', 'New Zealand', 'study-in-new-zealand.html', '50% 45%'),
       dst('a50bd06c76', 'Ireland', 'study-in-ireland.html', '55% 50%'),
       dst('eu-collage', 'Europe', 'study-in-europe.html', '35% 45%'),
@@ -59,7 +58,8 @@
       dst('0d5b335cea', 'South Korea', 'study-in-south-korea.html', '58% 45%'),
       dst('tr-istanbul', 'Türkiye', 'study-in-turkiye.html', '60% 50%'),
       dst('cn-greatwall', 'China', 'study-in-china.html', '62% 50%'),
-      ['img/svc-career.webp', 'img/svc-career.webp', 'Free counselling', 'booking.html', '44% 40%', 'Honest advice', 'Book free counselling', 'booking.html', '']
+      ['img/svc-career.webp', 'img/svc-career.webp', 'Free counselling', 'booking.html', '44% 40%', 'Honest advice', 'Book free counselling', 'booking.html', ''],
+      ['img/events.webp', 'img/events.webp', 'Events', 'events.html', '58% 40%', 'Many destinations, one team', 'Book free counselling', 'booking.html', '']
     ];
     var DUR = 2600;
     var small = (w.innerWidth || 1200) < 700;
