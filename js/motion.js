@@ -70,7 +70,6 @@
     }
     reel.innerHTML = stage +
       '<div class="ie-rl-shade" aria-hidden="true"></div>' +
-      '<div class="ie-rl-leaves" aria-hidden="true"><div class="grp"><i class="o"></i><i class="g"></i><i class="b"></i></div></div>' +
       '<div class="wrap ie-rl-copy">' +
         '<p class="ie-rl-tag"><span class="ie-rl-mark" aria-hidden="true"><i></i><i></i><i></i></span>International Education Specialists</p>' +
         '<p class="ie-rl-eye">Study in</p>' +
