@@ -273,7 +273,9 @@ footer .fbrand .ie-ftag{margin:0;max-width:none;opacity:1;color:#fff;font-family
 .ie-reel .ie-rl-tag{margin:0}
 /* phones: keep the tag above the floating chat buttons */
 @media (max-width:699px){.ie-reel .ie-rl-copy{padding-bottom:84px}}
-/* header logo shown in the reel footer beside the tag (owner) */
-.ie-reel .ie-rl-tag{gap:16px}
-.ie-reel .ie-rl-logo{display:block;width:auto;height:86px;flex:0 0 auto;filter:drop-shadow(0 4px 14px rgba(0,0,0,.35))}
-@media (max-width:699px){.ie-reel .ie-rl-logo{height:62px}.ie-reel .ie-rl-tag{gap:12px}}
+/* reel footer mark: 100% bigger than the tag text, i.e. 2x the font size (owner) */
+.ie-reel .ie-rl-tag{gap:12px}
+.ie-reel .ie-rl-mark{grid-template-columns:.95em .95em;grid-template-rows:.95em .95em;gap:.1em}
+.ie-reel .ie-rl-mark i:nth-child(1){border-radius:.95em .2em .95em .2em}
+.ie-reel .ie-rl-mark i:nth-child(2){border-radius:.2em .6em .2em .2em}
+.ie-reel .ie-rl-mark i:nth-child(3){border-radius:.2em .2em .2em .6em}
