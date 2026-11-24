@@ -81,7 +81,6 @@
     reel.innerHTML = stage +
       '<div class="ie-rl-shade" aria-hidden="true"></div>' +
       '<div class="wrap ie-rl-copy">' +
-        '<p class="ie-rl-tag"><span class="ie-rl-mark" aria-hidden="true"><i></i><i></i><i></i></span>International Education Specialists</p>' +
         '<p class="ie-rl-eye"></p>' +
         '<div class="ie-rl-namebox"><a class="ie-rl-name" href="' + S[0][3] + '"></a></div>' +
         '<a class="btn btn-sun ie-rl-cta" href="' + S[0][7] + '"></a>' +
