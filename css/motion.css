@@ -268,3 +268,8 @@ footer .fbrand .ie-ftag{margin:0;max-width:none;opacity:1;color:#fff;font-family
 .lhero .lt-b img{object-position:28% 50%}
 /* Home hero: headline at half its original size (owner request) */
 .lhero .lt-o h1{font-size:clamp(1.2rem,2.4vw,2.2rem);line-height:1.12;max-width:24ch}
+/* reel tag moved to the bottom (footer) of the reel video (owner) */
+.ie-reel .ie-rl-copy{position:absolute;top:0;bottom:0;left:0;right:0;margin:0 auto;height:auto;justify-content:flex-end;padding-bottom:34px}
+.ie-reel .ie-rl-tag{margin:0}
+/* phones: keep the tag above the floating chat buttons */
+@media (max-width:699px){.ie-reel .ie-rl-copy{padding-bottom:84px}}
