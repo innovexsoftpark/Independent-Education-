@@ -29,7 +29,7 @@
     frow.appendChild(fimg);
     var ftag = d.createElement('p');
     ftag.className = 'ie-ftag';
-    ftag.innerHTML = 'International<br>Education Specialists';
+    ftag.innerHTML = 'International<br>Education<br>Specialists';
     frow.appendChild(ftag);
   }
 
