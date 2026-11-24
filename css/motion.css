@@ -276,3 +276,5 @@ footer .fbrand .ie-ftag{margin:0;max-width:none;opacity:1;color:#fff;font-family
 .ie-reel .ie-rl-mark i:nth-child(2){border-radius:.2em .6em .2em .2em}
 .ie-reel .ie-rl-mark i:nth-child(3){border-radius:.2em .2em .2em .6em}
 .ie-reel .ie-rl-shade{display:none}
+.ie-reel{height:clamp(536px,calc(72vh + 96px),796px)}
+@media (max-width:699px){.ie-reel{height:clamp(516px,calc(74vh + 96px),696px)}}
