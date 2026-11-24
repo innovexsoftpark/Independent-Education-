@@ -254,7 +254,17 @@ footer .fbrand .ie-ftag{margin:0;max-width:none;opacity:1;color:#fff;font-family
 .ie-reel .ie-rl-pp{display:none}
 /* home hero orange tile: 'Dhaka · Study abroad guidance' line hidden (owner request 2026-11-24); do not re-add */
 .lhero .lt-o > .eyebrow{display:none}
-/* home hero tiles: softer orange + green (owner: easier on the eyes, 2026-11-24). Lighter option B: #ffd3b5 / #cff0bf */
-.lhero{--lo:#ffb98c;--lg:#b4e89b}
+/* home hero tiles: brand colours kept (owner: do not change them); a gentle same-colour light-to-shade gradient and a soft
+   coloured glow make the flat blocks easier on the eyes (owner request 2026-11-24) */
+.lhero .lt-o,.lhero .lt-g{background-image:linear-gradient(160deg,rgba(255,255,255,.16),rgba(255,255,255,0) 55%,rgba(16,33,63,.10))}
+.lhero .lt-o{box-shadow:0 0 0 1px rgba(255,255,255,.06),0 24px 60px -22px rgba(255,145,77,.45)}
+.lhero .lt-g{box-shadow:0 24px 60px -22px rgba(126,217,87,.35)}
+/* home hero orange box removed from view (owner request 2026-11-24); its heading and text stay in the page for
+   search engines and screen readers only (visually hidden), its buttons are removed. Green planner + office photo share the row. */
+.lhero .lt-o{position:absolute!important;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0 0 0 0);clip-path:inset(50%);white-space:nowrap;border:0;box-shadow:none}
+.lhero .lt-o::after{display:none}
+.lhero .lt-o .ctas{display:none}
+@media (min-width:981px){.lhero .lgrid{grid-template-columns:minmax(0,5fr) minmax(0,6fr);grid-template-rows:auto;align-items:stretch}}
+.lhero .lt-b img{object-position:28% 50%}
 /* Home hero: headline at half its original size (owner request) */
 .lhero .lt-o h1{font-size:clamp(1.2rem,2.4vw,2.2rem);line-height:1.12;max-width:24ch}
