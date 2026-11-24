@@ -224,7 +224,7 @@ footer .fbrand .ie-ftag{margin:0;max-width:none;opacity:1;color:#fff;font-family
   .ie-rl-dots{max-width:none}
 }
 @media (prefers-reduced-motion:reduce){
-  .ie-rl-s{transition:none}.ie-rl-s.is-on img,.ie-reel .ie-rl-name.in,.ie-reel .ie-rl-name.in::after,.ie-reel .ie-rl-eye.in,.ie-reel .ie-rl-cta.in{animation:none}
+  .ie-rl-s{transition:opacity .6s ease}.ie-rl-s.is-on img,.ie-reel .ie-rl-name.in,.ie-reel .ie-rl-name.in::after,.ie-reel .ie-rl-eye.in,.ie-reel .ie-rl-cta.in{animation:none}
 }
 /* Reel: story slides (counsellor, university, events, departure) */
 .ie-reel .ie-rl-eye.in{animation:ieRlUp .4s .04s cubic-bezier(.2,.8,.2,1) both}

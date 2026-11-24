@@ -93,7 +93,9 @@
     var slides = reel.querySelectorAll('.ie-rl-s'), dl = reel.querySelectorAll('.ie-rl-dot');
     var nm = reel.querySelector('.ie-rl-name'), eye = reel.querySelector('.ie-rl-eye'),
       cta = reel.querySelector('.ie-rl-cta'), pp = reel.querySelector('.ie-rl-pp');
-    var cur = -1, timer = 0, playing = !reduce, visible = true;
+    /* owner 2026-11-24: the reel always plays, also on devices set to reduce motion
+       (there it only cross-fades, with no zoom). */
+    var cur = -1, timer = 0, playing = true, visible = true;
     var load = function (i) {
       var im = slides[i] && slides[i].querySelector('img');
       if (im && im.getAttribute('data-src')) { im.src = im.getAttribute('data-src'); im.removeAttribute('data-src'); }
