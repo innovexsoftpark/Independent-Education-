@@ -252,5 +252,7 @@ footer .fbrand .ie-ftag{margin:0;max-width:none;opacity:1;color:#fff;font-family
 .ie-reel .ie-rl-dots{visibility:hidden}
 /* reel pause button hidden too (owner request 2026-11-24); do not re-add */
 .ie-reel .ie-rl-pp{display:none}
+/* home hero orange tile: 'Dhaka · Study abroad guidance' line hidden (owner request 2026-11-24); do not re-add */
+.lhero .lt-o > .eyebrow{display:none}
 /* Home hero: headline at half its original size (owner request) */
 .lhero .lt-o h1{font-size:clamp(1.2rem,2.4vw,2.2rem);line-height:1.12;max-width:24ch}
