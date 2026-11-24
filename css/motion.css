@@ -235,10 +235,6 @@ footer .fbrand .ie-ftag{margin:0;max-width:none;opacity:1;color:#fff;font-family
 .ie-reel.is-story .ie-rl-eye{color:var(--rl-accent);font-weight:600;letter-spacing:.01em}
 @media (min-width:700px){
   .ie-rl-shade{transition:opacity .65s}
-  .ie-reel.is-r .ie-rl-shade{background:linear-gradient(270deg,rgba(8,16,34,.94) 0%,rgba(8,16,34,.84) 32%,rgba(8,16,34,.3) 58%,rgba(8,16,34,0) 78%),linear-gradient(0deg,rgba(8,16,34,.75) 0%,rgba(8,16,34,0) 42%)}
-  .ie-reel.is-r .ie-rl-copy{align-items:flex-end;text-align:right}
-  .ie-reel.is-r .ie-rl-cta{align-self:flex-end}
-  .ie-reel.is-r .ie-rl-name::after{left:auto;right:2px}
 }
 @media (max-width:699px){.ie-reel.is-story.is-long .ie-rl-namebox{font-size:clamp(2rem,9vw,2.6rem)}.ie-rl-dots{gap:3px}}
 /* Reel: big slide title removed at owner request (2026-11-24); do not re-add */
