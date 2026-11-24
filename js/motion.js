@@ -37,7 +37,7 @@
      full-width, auto-playing reel above the home hero. It tells the student's
      story: destinations, interleaved with the site's own photos of a counsellor,
      a student on a university campus, an information session and students
-     departing. Every word on a slide is wording already used on the site, and
+     departing. Order (owner request): a student first, the counsellor last. Every word on a slide is wording already used on the site, and
      every link goes to an existing page. */
   var lhero = d.querySelector('section.lhero');
   if (lhero && !d.querySelector('.ie-reel')) (function () {
@@ -45,10 +45,9 @@
     /* [small image, large image, title, title link, object-position, eyebrow, button, button link, copy side] */
     var dst = function (k, name, href, pos) { return ['img/' + k + '.webp', 'img/' + k + '-hd.webp', name, href, pos, DEST[0], DEST[1], DEST[2], '']; };
     var S = [
-      ['img/svc-career.webp', 'img/svc-career.webp', 'Free counselling', 'booking.html', '44% 40%', 'Honest advice', 'Book free counselling', 'booking.html', ''],
+      ['img/2b03291e37.webp', 'img/2b03291e37.webp', 'Find a university', 'find-a-university.html', '58% 30%', 'Careful applications', 'How to apply', 'how-to-apply.html', ''],
       dst('02333d4f4a', 'United Kingdom', 'study-in-the-uk.html', '60% 40%'),
       dst('f90488a779', 'USA', 'study-in-the-usa.html', '62% 40%'),
-      ['img/2b03291e37.webp', 'img/2b03291e37.webp', 'Find a university', 'find-a-university.html', '58% 30%', 'Careful applications', 'How to apply', 'how-to-apply.html', ''],
       dst('3d1d3c56b2', 'Canada', 'study-in-canada.html', '50% 62%'),
       dst('au-sydney', 'Australia', 'study-in-australia.html', '55% 55%'),
       ['img/events.webp', 'img/events.webp', 'Events', 'events.html', '58% 40%', 'Many destinations, one team', 'Book free counselling', 'booking.html', ''],
@@ -59,9 +58,10 @@
       dst('my-kl', 'Malaysia', 'study-in-malaysia.html', '50% 45%'),
       dst('0d5b335cea', 'South Korea', 'study-in-south-korea.html', '58% 45%'),
       dst('tr-istanbul', 'Türkiye', 'study-in-turkiye.html', '60% 50%'),
-      dst('cn-greatwall', 'China', 'study-in-china.html', '62% 50%')
+      dst('cn-greatwall', 'China', 'study-in-china.html', '62% 50%'),
+      ['img/svc-career.webp', 'img/svc-career.webp', 'Free counselling', 'booking.html', '44% 40%', 'Honest advice', 'Book free counselling', 'booking.html', '']
     ];
-    var DUR = 3400;
+    var DUR = 2600;
     var small = (w.innerWidth || 1200) < 700;
     var src = function (i) { return S[i][small ? 0 : 1]; };
     var reel = d.createElement('section');
