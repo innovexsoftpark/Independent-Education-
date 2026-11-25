@@ -57,7 +57,7 @@
     var S = [
       ['img/student-offer-fhd.webp', 'img/student-offer-fhd.webp', 'Find a university', 'find-a-university.html', '70% 30%', 'Careful applications', 'How to apply', 'how-to-apply.html', ''],
       dst('uk-towerbridge', 'United Kingdom', 'study-in-the-uk.html', '50% 50%'),
-      dst('f90488a779', 'USA', 'study-in-the-usa.html', '62% 40%'),
+      dst('us-liberty', 'USA', 'study-in-the-usa.html', '86% 50%'),
       dst('3d1d3c56b2', 'Canada', 'study-in-canada.html', '50% 62%'),
       dst('au-sydney', 'Australia', 'study-in-australia.html', '55% 55%'),
       dst('nz-auckland', 'New Zealand', 'study-in-new-zealand.html', '50% 45%'),
