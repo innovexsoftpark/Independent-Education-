@@ -5,6 +5,7 @@ const data={
  "USA":{intake:"Fall (Aug/Sep) and Spring (Jan)",test:"TOEFL, IELTS or Duolingo; some courses ask for SAT/GRE/GMAT"},
  "New Zealand":{intake:"February and July",test:"IELTS, PTE or TOEFL"},
  "Ireland":{intake:"September (main) and January",test:"IELTS, PTE or TOEFL"},
+ "Netherlands":{intake:"September (main); February at some universities",test:"IELTS or TOEFL"},
  "Europe":{intake:"Winter (Sep/Oct) and summer (Feb/Mar) semesters, by country",test:"IELTS or TOEFL; some courses need German, French or another local language"},
  "South Korea":{intake:"Spring (March) and fall (September)",test:"IELTS or TOEFL for English-taught courses; TOPIK for Korean-taught courses"},
  "Malaysia":{intake:"Several a year, often Jan/Feb, May and September",test:"IELTS, PTE, TOEFL or university test"},
@@ -254,7 +255,7 @@ try{(async function(){
         q=document.getElementById('aiq'), send=document.getElementById('aisend'), stop=document.getElementById('aistop');
   wrap.hidden=false;
   const RULES="You are the friendly AI assistant on the website of Independent Education, a study abroad consultancy in Dhaka, Bangladesh (CEO: Md. Mijanur Rahman). "
-   +"Help Bangladeshi students and parents with general questions about studying abroad: choosing countries (Australia, UK, Canada, USA, New Zealand, Ireland, Europe, South Korea, Malaysia, Türkiye, China, Colombia), courses, applications, IELTS and other English tests, scholarships, student visas, costs, accommodation and student life. "
+   +"Help Bangladeshi students and parents with general questions about studying abroad: choosing countries (Australia, UK, Canada, USA, New Zealand, Ireland, Netherlands, Europe, South Korea, Malaysia, Türkiye, China, Colombia), courses, applications, IELTS and other English tests, scholarships, student visas, costs, accommodation and student life. "
    +"Rules: reply in the same language as the question (Bangla or English). Keep answers short and practical: at most about 120 words, plain text, short lines or simple dashes, no markdown headings or tables. "
    +"Visa rules, fees, scores and deadlines change, so say when something should be checked with the university, the official immigration website or an Independent Education counsellor. Never guarantee admission, visas or scholarships, and never invent specific figures you are unsure of. "
    +"Where useful, suggest booking free counselling with Independent Education: phone/WhatsApp +8801913179498, email info.independentedu@gmail.com. If a question is unrelated to studying abroad, politely say you can only help with study abroad topics.";
