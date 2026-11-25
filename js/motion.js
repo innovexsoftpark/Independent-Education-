@@ -52,10 +52,10 @@
   var lhero = d.querySelector('section.lhero');
   if (lhero && !d.querySelector('.ie-reel')) (function () {
     var DEST = ['Study in', 'Explore destinations', 'destinations.html'];
-    /* [small image, large image, title, title link, object-position, eyebrow, button, button link, copy side] */
-    var dst = function (k, name, href, pos) { return ['img/' + k + '.webp', 'img/' + k + '-hd.webp', name, href, pos, DEST[0], DEST[1], DEST[2], '']; };
+    /* [phone image, Full HD 1920px image (owner request 2026-11-25), title, title link, object-position, eyebrow, button, button link, copy side] */
+    var dst = function (k, name, href, pos) { return ['img/' + k + '-hd.webp', 'img/' + k + '-fhd.webp', name, href, pos, DEST[0], DEST[1], DEST[2], '']; };
     var S = [
-      ['img/2b03291e37.webp', 'img/2b03291e37.webp', 'Find a university', 'find-a-university.html', '58% 30%', 'Careful applications', 'How to apply', 'how-to-apply.html', ''],
+      ['img/2b03291e37-fhd.webp', 'img/2b03291e37-fhd.webp', 'Find a university', 'find-a-university.html', '58% 30%', 'Careful applications', 'How to apply', 'how-to-apply.html', ''],
       dst('02333d4f4a', 'United Kingdom', 'study-in-the-uk.html', '60% 40%'),
       dst('f90488a779', 'USA', 'study-in-the-usa.html', '62% 40%'),
       dst('3d1d3c56b2', 'Canada', 'study-in-canada.html', '50% 62%'),
@@ -63,13 +63,13 @@
       dst('nz-auckland', 'New Zealand', 'study-in-new-zealand.html', '50% 45%'),
       dst('a50bd06c76', 'Ireland', 'study-in-ireland.html', '55% 50%'),
       dst('eu-collage', 'Europe', 'study-in-europe.html', '35% 45%'),
-      ['img/prepare-depart.webp', 'img/prepare-depart.webp', 'Preparing to depart', 'preparing-to-depart.html', '36% 0%', 'Help beyond your visa', 'Pre-departure support', 'pre-departure-support.html', 'r'],
+      ['img/prepare-depart-fhd.webp', 'img/prepare-depart-fhd.webp', 'Preparing to depart', 'preparing-to-depart.html', '36% 0%', 'Help beyond your visa', 'Pre-departure support', 'pre-departure-support.html', 'r'],
       dst('my-kl', 'Malaysia', 'study-in-malaysia.html', '50% 45%'),
       dst('0d5b335cea', 'South Korea', 'study-in-south-korea.html', '58% 45%'),
       dst('tr-istanbul', 'Türkiye', 'study-in-turkiye.html', '60% 50%'),
       dst('cn-greatwall', 'China', 'study-in-china.html', '62% 50%'),
-      ['img/svc-career.webp', 'img/svc-career.webp', 'Free counselling', 'booking.html', '44% 40%', 'Honest advice', 'Book free counselling', 'booking.html', ''],
-      ['img/events.webp', 'img/events.webp', 'Events', 'events.html', '58% 40%', 'Many destinations, one team', 'Book free counselling', 'booking.html', '']
+      ['img/svc-career-fhd.webp', 'img/svc-career-fhd.webp', 'Free counselling', 'booking.html', '44% 40%', 'Honest advice', 'Book free counselling', 'booking.html', ''],
+      ['img/events-fhd.webp', 'img/events-fhd.webp', 'Events', 'events.html', '58% 40%', 'Many destinations, one team', 'Book free counselling', 'booking.html', '']
     ];
     var DUR = 2600;
     var small = (w.innerWidth || 1200) < 700;
