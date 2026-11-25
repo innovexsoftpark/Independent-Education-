@@ -55,7 +55,7 @@
     /* [phone image, Full HD 1920px image (owner request 2026-11-25), title, title link, object-position, eyebrow, button, button link, copy side] */
     var dst = function (k, name, href, pos) { return ['img/' + k + '-hd.webp', 'img/' + k + '-fhd.webp', name, href, pos, DEST[0], DEST[1], DEST[2], '']; };
     var S = [
-      ['img/2b03291e37-fhd.webp', 'img/2b03291e37-fhd.webp', 'Find a university', 'find-a-university.html', '58% 30%', 'Careful applications', 'How to apply', 'how-to-apply.html', ''],
+      ['img/student-offer-fhd.webp', 'img/student-offer-fhd.webp', 'Find a university', 'find-a-university.html', '70% 30%', 'Careful applications', 'How to apply', 'how-to-apply.html', ''],
       dst('uk-towerbridge', 'United Kingdom', 'study-in-the-uk.html', '50% 50%'),
       dst('f90488a779', 'USA', 'study-in-the-usa.html', '62% 40%'),
       dst('3d1d3c56b2', 'Canada', 'study-in-canada.html', '50% 62%'),
