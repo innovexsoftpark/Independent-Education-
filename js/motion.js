@@ -61,7 +61,7 @@
       dst('3d1d3c56b2', 'Canada', 'study-in-canada.html', '50% 62%'),
       dst('au-sydney', 'Australia', 'study-in-australia.html', '55% 55%'),
       dst('nz-auckland', 'New Zealand', 'study-in-new-zealand.html', '50% 45%'),
-      dst('a50bd06c76', 'Ireland', 'study-in-ireland.html', '55% 50%'),
+      dst('ie-moher', 'Ireland', 'study-in-ireland.html', '67% 50%'),
       dst('eu-collage', 'Europe', 'study-in-europe.html', '35% 45%'),
       ['img/prepare-depart-fhd.webp', 'img/prepare-depart-fhd.webp', 'Preparing to depart', 'preparing-to-depart.html', '36% 0%', 'Help beyond your visa', 'Pre-departure support', 'pre-departure-support.html', 'r'],
       dst('my-kl', 'Malaysia', 'study-in-malaysia.html', '50% 45%'),
