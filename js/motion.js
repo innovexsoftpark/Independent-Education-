@@ -66,7 +66,7 @@
       ['img/prepare-depart-fhd.webp', 'img/prepare-depart-fhd.webp', 'Preparing to depart', 'preparing-to-depart.html', '36% 0%', 'Help beyond your visa', 'Pre-departure support', 'pre-departure-support.html', 'r'],
       dst('my-kl', 'Malaysia', 'study-in-malaysia.html', '50% 45%'),
       dst('0d5b335cea', 'South Korea', 'study-in-south-korea.html', '58% 45%'),
-      dst('tr-istanbul', 'Türkiye', 'study-in-turkiye.html', '60% 50%'),
+      dst('tr-cappadocia', 'Türkiye', 'study-in-turkiye.html', '50% 50%'),
       dst('cn-greatwall', 'China', 'study-in-china.html', '62% 50%'),
       ['img/svc-career-fhd.webp', 'img/svc-career-fhd.webp', 'Free counselling', 'booking.html', '44% 40%', 'Honest advice', 'Book free counselling', 'booking.html', ''],
       ['img/events-fhd.webp', 'img/events-fhd.webp', 'Events', 'events.html', '58% 40%', 'Many destinations, one team', 'Book free counselling', 'booking.html', '']
