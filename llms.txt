@@ -76,6 +76,7 @@ Australia, United Kingdom, Canada, USA, New Zealand, Ireland, Europe, South Kore
 - [Health insurance](https://www.your-domain.com/health-insurance.html)
 - [Money transfer](https://www.your-domain.com/money-transfer.html)
 - [Accommodation](https://www.your-domain.com/accommodation.html)
+- [Cost of living](https://www.your-domain.com/cost-of-living.html)
 - [Student banking](https://www.your-domain.com/student-banking.html)
 - [Guardianship](https://www.your-domain.com/guardianship.html)
 - [SIM card](https://www.your-domain.com/sim-card.html)
