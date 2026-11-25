@@ -300,3 +300,20 @@ footer .fbrand .ie-ftag{margin:0;max-width:none;opacity:1;color:#fff;font-family
 .contact .info>.soc-ph>div{min-width:0}
 .contact .info>.soc-ph>div>span{display:block;font-weight:600;font-size:.95rem;white-space:nowrap;font-variant-numeric:tabular-nums;overflow:hidden;text-overflow:ellipsis}
 .contact .info>.soc-ph .copy{position:absolute;top:8px;right:8px;padding:4px 8px;font-size:.72rem}
+
+/* Footer "Cost of living abroad" block (owner request 2026-11-25). */
+footer .ie-col{width:100%;margin-top:30px;padding-top:24px;border-top:1px solid rgba(255,255,255,.15)}
+footer .ie-colhead h3{margin:0 0 6px;font-size:1.1rem}
+footer .ie-colhead p{margin:0 0 16px;max-width:70ch;opacity:.85}
+footer .ie-colgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(190px,100%),1fr));gap:10px;list-style:none;margin:0;padding:0}
+footer .ie-colgrid>li{display:flex;flex-direction:column;gap:4px;padding:14px;border-radius:14px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);min-width:0}
+footer .ie-colc{font-weight:600;color:#fff;font-size:.85rem;opacity:.9}
+footer .ie-colv{font-family:var(--display);font-weight:700;font-size:1.25rem;color:var(--sun);font-variant-numeric:tabular-nums;line-height:1.2}
+footer .ie-cold{font-size:.8rem;opacity:.8;line-height:1.45}
+footer .ie-cols{margin-top:auto;padding-top:6px;font-size:.75rem;color:var(--sun);text-decoration:underline;text-underline-offset:3px}
+footer .ie-colgrid>li.ie-colo{background:transparent;border-style:dashed}
+footer .ie-coldet{margin-top:14px;border-radius:14px;border:1px solid rgba(255,255,255,.12);padding:0 14px}
+footer .ie-coldet summary{cursor:pointer;padding:12px 0;font-weight:600;color:#fff;min-height:44px;display:flex;align-items:center}
+footer .ie-coldet ol{margin:0 0 10px;padding-left:1.3em;display:grid;gap:6px;max-width:80ch;opacity:.9}
+footer .ie-coldet b{color:#fff}
+footer .ie-colsrc{margin:0 0 14px;font-size:.78rem;opacity:.75}

@@ -33,6 +33,46 @@
     frow.appendChild(ftag);
   }
 
+  /* F. Footer: "Cost of living abroad" (owner request 2026-11-25). New block
+     only; existing footer content untouched. Figures are the official
+     living-cost funds a student visa asks for, checked 2026-11-25. */
+  var fgrid = d.querySelector('footer .fgrid');
+  if (fgrid && !d.querySelector('.ie-col')) {
+    var COL = [
+      ['United Kingdom', '&pound;1,171&ndash;&pound;1,529', 'a month, up to 9 months (London is the higher figure). From 30 Nov 2026: &pound;1,203&ndash;&pound;1,570.', 'https://www.gov.uk/student-visa/money', 'GOV.UK'],
+      ['Canada', 'CA$23,448', 'a year, outside Quebec, for applications from 1 Sep 2026.', 'https://www.canada.ca/en/immigration-refugees-citizenship/services/study-canada/study-permit/get-documents/financial-support.html', 'IRCC'],
+      ['Australia', 'AU$29,710', 'a year (12 months of living costs).', 'https://immi.homeaffairs.gov.au/visas/getting-a-visa/visa-listing/student-500', 'Home Affairs'],
+      ['New Zealand', 'NZ$20,000', 'a year, for your first year of study.', 'https://www.studywithnewzealand.govt.nz/en/live-work/living-in-new-zealand/cost-of-living', 'Study with NZ'],
+      ['Ireland', '&euro;10,000', 'a year for a one-year course; &euro;833 a month for 6&ndash;8 months.', 'https://www.irishimmigration.ie/reminder-on-student-finance-requirements-from-30-june-2025/', 'Irish Immigration']
+    ];
+    var STEPS = [
+      '<b>List your costs:</b> tuition and fees, accommodation and bills, food, transport, health insurance, books and supplies, personal spending, and money for the unexpected.',
+      '<b>Research local prices</b> in the city where you will study. University and government websites are good places to start.',
+      '<b>Build a budget</b> for each category, add them up, and keep an emergency fund.',
+      '<b>Watch exchange rates</b> between taka and the currency you will spend.',
+      '<b>Compare transfer fees</b> and rates from banks and money transfer services before you send money.',
+      '<b>Allow for seasons:</b> heating bills and holiday travel change through the year.',
+      '<b>Track and adjust:</b> once you arrive, check real spending against your budget.',
+      '<b>Get help:</b> look for scholarships, part-time work and financial aid from your university or host country.'
+    ];
+    var col = d.createElement('section');
+    col.className = 'ie-col';
+    col.setAttribute('aria-labelledby', 'ie-col-h');
+    var h = '<div class="ie-colhead"><h3 id="ie-col-h">Cost of living abroad</h3>' +
+      '<p>The living-cost money a student visa asks you to show, on top of tuition fees. Official figures, checked 25 November 2026. They change, so confirm with us before you apply.</p></div><ul class="ie-colgrid">';
+    COL.forEach(function (c) {
+      h += '<li><span class="ie-colc">' + c[0] + '</span><span class="ie-colv">' + c[1] + '</span><span class="ie-cold">' + c[2] + '</span>' +
+        '<a class="ie-cols" href="' + c[3] + '" target="_blank" rel="noopener">Source: ' + c[4] + '</a></li>';
+    });
+    h += '<li class="ie-colo"><span class="ie-colc">Other destinations</span><span class="ie-cold">USA, Europe, Malaysia, China, South Korea and T&uuml;rkiye: the amount depends on your university and visa rules.</span>' +
+      '<a class="ie-cols" href="contact.html">Ask a counsellor</a></li></ul>' +
+      '<details class="ie-coldet"><summary>How to plan your budget</summary><ol>';
+    STEPS.forEach(function (t) { h += '<li>' + t + '</li>'; });
+    h += '</ol><p class="ie-colsrc">Guide adapted from <a href="https://www.idp.com/bangladesh/living-abroad/cost-of-living/" target="_blank" rel="noopener nofollow">IDP Bangladesh</a>.</p></details>';
+    col.innerHTML = h;
+    fgrid.parentNode.insertBefore(col, fgrid.nextSibling);
+  }
+
   /* R. Home page reel (owner request 2026-11-24, reworked the same day): a
      full-width, auto-playing reel above the home hero. It tells the student's
      story: destinations, interleaved with the site's own photos of a counsellor,
