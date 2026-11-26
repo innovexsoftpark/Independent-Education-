@@ -1,0 +1,9 @@
+# robots.txt for Independent Education
+# Replace www.your-domain.com with your real domain before uploading.
+
+User-agent: *
+Allow: /
+Disallow: /server-tracking/
+Disallow: /n8n-automation-DO-NOT-UPLOAD/
+
+Sitemap: https://www.your-domain.com/sitemap.xml

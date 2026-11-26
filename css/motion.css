@@ -1,0 +1,321 @@
+/* Independent Education: design and motion layer.
+   Loaded after site.css on every page. It only restyles and animates the
+   existing markup; it never adds, hides or changes any text.
+   All movement sits inside (prefers-reduced-motion: no-preference), and
+   only transform, opacity and background-position are animated, so phones
+   stay smooth. */
+
+:root{
+  --ie-o:#ff914d;--ie-g:#7ed957;--ie-b:#38b6ff;
+  --ie-ease:cubic-bezier(.16,1,.3,1);
+  --ie-shadow:0 1px 2px rgba(16,33,63,.05),0 10px 28px -12px rgba(16,33,63,.22);
+  --ie-shadow-lg:0 2px 4px rgba(16,33,63,.06),0 26px 50px -18px rgba(16,33,63,.34);
+  --ie-grad:linear-gradient(90deg,var(--ie-o),var(--ie-g),var(--ie-b));
+}
+:root:not([data-theme="light"]){--ie-shadow:0 1px 2px rgba(0,0,0,.3),0 12px 30px -12px rgba(0,0,0,.6);--ie-shadow-lg:0 2px 4px rgba(0,0,0,.3),0 28px 54px -18px rgba(0,0,0,.75)}
+@media (prefers-color-scheme:light){:root:not([data-theme="dark"]){--ie-shadow:0 1px 2px rgba(16,33,63,.05),0 10px 28px -12px rgba(16,33,63,.22);--ie-shadow-lg:0 2px 4px rgba(16,33,63,.06),0 26px 50px -18px rgba(16,33,63,.34)}}
+:root[data-theme="dark"]{--ie-shadow:0 1px 2px rgba(0,0,0,.3),0 12px 30px -12px rgba(0,0,0,.6);--ie-shadow-lg:0 2px 4px rgba(0,0,0,.3),0 28px 54px -18px rgba(0,0,0,.75)}
+
+/* ---------- scroll progress line ---------- */
+.ie-progress{position:fixed;left:0;right:0;top:0;height:3px;z-index:1000;pointer-events:none;background:var(--ie-grad);transform-origin:0 50%;transform:scaleX(0)}
+
+/* ---------- header: brand hairline ---------- */
+header{box-shadow:none}
+header::after{content:"";position:absolute;left:0;right:0;bottom:-1px;height:2px;background:linear-gradient(90deg,var(--ie-o),var(--ie-g),var(--ie-b),var(--ie-o));background-size:300% 100%;pointer-events:none}
+#nav > ul > li > a{background-image:linear-gradient(var(--ie-o),var(--ie-o));background-repeat:no-repeat;background-position:0 100%;background-size:0 2px;transition:background-size .35s var(--ie-ease),color .2s}
+#nav > ul > li > a:hover,#nav > ul > li > a:focus-visible{background-size:100% 2px}
+
+/* ---------- home hero: living background ---------- */
+.lhero{position:relative;isolation:isolate;overflow:hidden;background:#05090f}
+.ie-hfx{position:absolute;inset:0;z-index:-1;pointer-events:none;overflow:hidden}
+.ie-hfx i{position:absolute;display:block}
+.ie-hfx .b{border-radius:50%;will-change:transform}
+.ie-hfx .b1{width:80vmax;height:80vmax;left:-30vmax;top:-38vmax;background:radial-gradient(closest-side,rgba(255,145,77,.42),rgba(255,145,77,0))}
+.ie-hfx .b2{width:70vmax;height:70vmax;right:-28vmax;bottom:-40vmax;background:radial-gradient(closest-side,rgba(126,217,87,.34),rgba(126,217,87,0))}
+.ie-hfx .b3{width:62vmax;height:62vmax;right:-14vmax;top:-34vmax;background:radial-gradient(closest-side,rgba(56,182,255,.38),rgba(56,182,255,0))}
+.ie-hfx .grid{inset:0;background-image:radial-gradient(rgba(255,255,255,.09) 1px,transparent 1.2px);background-size:26px 26px;-webkit-mask-image:radial-gradient(ellipse at 50% 40%,#000 20%,transparent 75%);mask-image:radial-gradient(ellipse at 50% 40%,#000 20%,transparent 75%)}
+.ie-hfx .lf{border:1.5px solid rgba(255,255,255,.14);border-radius:200px 28px 200px 28px;will-change:transform}
+.ie-hfx .l1{width:140px;height:140px;left:3%;bottom:8%;border-color:rgba(255,145,77,.35)}
+.ie-hfx .l2{width:70px;height:70px;left:46%;top:6%;border-color:rgba(126,217,87,.35);border-radius:28px 200px 28px 200px}
+.ie-hfx .l3{width:110px;height:110px;right:4%;bottom:14%;border-color:rgba(56,182,255,.35)}
+.ie-hfx .l4{width:46px;height:46px;right:38%;bottom:4%;background:rgba(255,145,77,.18);border:0;border-radius:28px 200px 28px 200px}
+.ie-hfx .l5{width:34px;height:34px;left:30%;top:16%;background:rgba(56,182,255,.22);border:0}
+
+.lt-o,.lt-g,.lt-b{position:relative;box-shadow:0 30px 60px -30px rgba(0,0,0,.7)}
+.lt-o{overflow:hidden}
+.lt-o > *{position:relative;z-index:1}
+/* soft light that follows the pointer (desktop only, set by motion.js) */
+.ltile::before{content:"";position:absolute;inset:0;border-radius:inherit;pointer-events:none;z-index:0;opacity:0;transition:opacity .4s;background:radial-gradient(420px circle at var(--mx,50%) var(--my,50%),rgba(255,255,255,.28),transparent 60%)}
+.ltile.ie-lit::before{opacity:1}
+.lt-b img{transform-origin:60% 40%}
+
+/* ---------- inner page header: brand motif ---------- */
+.pagehead{position:relative;isolation:isolate;overflow:hidden}
+.pagehead .wrap{position:relative;z-index:1}
+.ie-phfx{position:absolute;inset:0;z-index:0;pointer-events:none;overflow:hidden}
+.ie-phfx i{position:absolute;display:block;will-change:transform}
+.ie-phfx .g1{width:520px;height:520px;right:-120px;top:-260px;border-radius:50%;background:radial-gradient(closest-side,rgba(56,182,255,.32),rgba(56,182,255,0))}
+.ie-phfx .g2{width:460px;height:460px;left:-160px;bottom:-300px;border-radius:50%;background:radial-gradient(closest-side,rgba(255,145,77,.26),rgba(255,145,77,0))}
+/* the logo's three shapes: orange leaf, green tile, blue tile */
+.ie-phfx .m1{width:64px;height:126px;right:calc(6% + 78px);top:50%;margin-top:-63px;background:var(--ie-o);border-radius:64px 10px 64px 10px;opacity:.9}
+.ie-phfx .m2{width:60px;height:60px;right:calc(6% + 8px);top:50%;margin-top:-64px;background:var(--ie-g);border-radius:10px 30px 10px 30px;opacity:.9}
+.ie-phfx .m3{width:60px;height:60px;right:calc(6% + 8px);top:50%;margin-top:4px;background:var(--ie-b);border-radius:30px 10px 30px 10px;opacity:.9}
+@media (max-width:760px){.ie-phfx .m1,.ie-phfx .m2,.ie-phfx .m3{opacity:.22;scale:.7;transform-origin:100% 50%;right:-6px}.ie-phfx .m1{right:62px}}
+.pagehead h1::after{content:"";display:block;width:72px;height:5px;margin-top:16px;border-radius:5px;background:var(--ie-grad)}
+
+/* ---------- cards ---------- */
+.card{transition:transform .45s var(--ie-ease),box-shadow .45s var(--ie-ease),border-color .3s}
+@media (hover:hover){
+  .card:hover{transform:translateY(-6px);box-shadow:var(--ie-shadow-lg);border-color:color-mix(in srgb,var(--ie-b) 45%,var(--line))}
+  .chip{transition:transform .25s var(--ie-ease),border-color .25s,background-color .25s}
+  .chip:hover{transform:translateY(-2px);border-color:var(--ie-o)}
+}
+.card.nx{position:relative;overflow:hidden}
+.card.nx::after{content:"";position:absolute;left:0;top:0;height:4px;width:100%;background:var(--ie-grad);transform:scaleX(0);transform-origin:0 50%;transition:transform .6s var(--ie-ease)}
+.card.nx:hover::after,.card.nx.is-in::after{transform:scaleX(1)}
+.ie-num{position:absolute;right:16px;top:10px;font:800 2.2rem/1 var(--display);letter-spacing:-.03em;font-variant-numeric:tabular-nums;background:linear-gradient(135deg,var(--ie-o),var(--ie-b));-webkit-background-clip:text;background-clip:text;color:transparent;opacity:.85;pointer-events:none;user-select:none}
+.card.nx h3{padding-right:58px}
+
+/* step badges on step lists (decorative numbers, counted up by motion.js) */
+.applist li.ie-step{grid-template-columns:44px 1fr}
+.applist li.ie-step .tn{font-variant-numeric:tabular-nums;box-shadow:0 8px 18px -8px rgba(255,145,77,.8)}
+@media (max-width:640px){.applist li.ie-step{grid-template-columns:44px 1fr}}
+
+/* ---------- buttons ---------- */
+.btn{transition:transform .25s var(--ie-ease),box-shadow .25s var(--ie-ease),filter .2s,background-color .2s,color .2s,border-color .2s}
+.btn-sun,.lbtn-ink{position:relative;overflow:hidden;isolation:isolate}
+.btn-sun::after,.lbtn-ink::after{content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;background:linear-gradient(115deg,transparent 30%,rgba(255,255,255,.45) 50%,transparent 70%);transform:translateX(-120%)}
+@media (hover:hover){
+  .btn:hover{transform:translateY(-2px)}
+  .btn-sun:hover{box-shadow:0 12px 26px -10px rgba(255,145,77,.85)}
+  .btn-sun:hover::after,.lbtn-ink:hover::after{transform:translateX(120%);transition:transform .8s var(--ie-ease)}
+}
+.btn:active{transform:translateY(0) scale(.98)}
+
+/* ---------- section titles ---------- */
+main section > .wrap > h2:not(.vh){position:relative}
+
+/* ---------- tables: number count-up ---------- */
+.ie-counting{font-variant-numeric:tabular-nums}
+
+/* =====================  MOTION  ===================== */
+@media (prefers-reduced-motion:no-preference){
+  header::after{animation:ieFlow 12s linear infinite}
+  .ie-hfx .b1{animation:ieD1 18s ease-in-out infinite alternate}
+  .ie-hfx .b2{animation:ieD2 22s ease-in-out infinite alternate}
+  .ie-hfx .b3{animation:ieD3 26s ease-in-out infinite alternate}
+  .ie-hfx .l1{animation:ieFloat 14s ease-in-out infinite}
+  .ie-hfx .l2{animation:ieFloat 11s ease-in-out -3s infinite reverse}
+  .ie-hfx .l3{animation:ieFloat 16s ease-in-out -6s infinite}
+  .ie-hfx .l4{animation:ieFloat 9s ease-in-out -2s infinite reverse}
+  .ie-hfx .l5{animation:ieFloat 12s ease-in-out -5s infinite}
+  .lt-o::after{content:"";position:absolute;inset:-20% auto -20% -60%;width:40%;z-index:0;pointer-events:none;background:linear-gradient(100deg,transparent,rgba(255,255,255,.22),transparent);transform:skewX(-18deg) translateX(0);animation:ieSheen 7s ease-in-out 1.6s infinite}
+  .lt-b img{animation:ieKen 24s ease-in-out infinite alternate}
+  .lt-o > .eyebrow,.lt-o > h1,.lt-o > p,.lt-o > .ctas{animation:ieRise 1s var(--ie-ease) both}
+  .lt-o > .eyebrow{animation-delay:.15s}.lt-o > h1{animation-delay:.25s}.lt-o > p{animation-delay:.42s}.lt-o > .ctas{animation-delay:.56s}
+
+  .ie-phfx .g1{animation:ieD3 20s ease-in-out infinite alternate}
+  .ie-phfx .g2{animation:ieD1 24s ease-in-out infinite alternate}
+  .ie-phfx .m1{animation:ieIn .9s var(--ie-ease) .1s both,ieBob 7s ease-in-out 1s infinite}
+  .ie-phfx .m2{animation:ieIn .9s var(--ie-ease) .22s both,ieBob 7s ease-in-out 1.4s infinite}
+  .ie-phfx .m3{animation:ieIn .9s var(--ie-ease) .34s both,ieBob 7s ease-in-out 1.8s infinite}
+  .pagehead .crumbs{animation:ieRise .8s var(--ie-ease) both}
+  .pagehead h1{animation:ieRise 1s var(--ie-ease) .1s both}
+  .pagehead h1::after{animation:ieGrow 1s var(--ie-ease) .45s both;transform-origin:0 50%}
+  .pagehead p.lead{animation:ieRise 1s var(--ie-ease) .22s both}
+
+  .ie-paused .ie-hfx i,.ie-paused .ie-phfx i,.ie-paused.lhero .lt-o::after,.ie-paused .lt-b img{animation-play-state:paused}
+
+  /* scroll reveal: only once motion.js is running */
+  .ie-js .ie-rv{opacity:0;transform:translateY(34px);transition:opacity .9s var(--ie-ease) var(--d,0s),transform 1s var(--ie-ease) var(--d,0s)}
+  .ie-js .ie-rv.ie-rl{transform:translateX(-36px)}
+  .ie-js .ie-rv.ie-rz{transform:translateY(24px) scale(.96)}
+  .ie-js .ie-rv-img{clip-path:inset(0 0 100% 0 round 14px);transform:scale(1.08);transition:clip-path 1.2s var(--ie-ease) var(--d,0s),transform 1.6s var(--ie-ease) var(--d,0s)}
+  .ie-js .ie-rv.is-in{opacity:1;transform:none}
+  .ie-js .ie-rv-img.is-in{clip-path:inset(0 0 0 0 round 0);transform:none}
+  /* a revealed card keeps its hover lift */
+  @media (hover:hover){.ie-js .card.ie-rv.is-in:hover{transform:translateY(-6px);transition-delay:0s}}
+}
+@media print{.ie-rv,.ie-rv-img{opacity:1!important;transform:none!important;clip-path:none!important}.ie-progress,.ie-hfx,.ie-phfx{display:none!important}}
+
+@keyframes ieFlow{to{background-position:300% 0}}
+@keyframes ieD1{from{transform:translate3d(0,0,0) scale(1)}to{transform:translate3d(14vmax,10vmax,0) scale(1.15)}}
+@keyframes ieD2{from{transform:translate3d(0,0,0) scale(1.1)}to{transform:translate3d(-16vmax,-8vmax,0) scale(.95)}}
+@keyframes ieD3{from{transform:translate3d(0,0,0) scale(.95)}to{transform:translate3d(-10vmax,14vmax,0) scale(1.12)}}
+@keyframes ieFloat{0%,100%{transform:translate3d(0,0,0) rotate(0)}50%{transform:translate3d(0,-26px,0) rotate(14deg)}}
+@keyframes ieBob{0%,100%{translate:0 0}50%{translate:0 -8px}}
+@keyframes ieSheen{0%,70%{transform:skewX(-18deg) translateX(0)}100%{transform:skewX(-18deg) translateX(480%)}}
+@keyframes ieKen{from{transform:scale(1)}to{transform:scale(1.09)}}
+@keyframes ieRise{from{opacity:0;transform:translateY(26px)}to{opacity:1;transform:none}}
+@keyframes ieIn{from{opacity:0;transform:translateY(30px) rotate(-12deg) scale(.6)}to{transform:none}}
+@keyframes ieGrow{from{transform:scaleX(0)}to{transform:scaleX(1)}}
+
+/* Social link cards (Facebook, Instagram, X, TikTok, LinkedIn) removed from the contact list at the owner's request (2026-11-23).
+   The same links are still in the social buttons and the footer. */
+.soc-line:is(.soc-fb,.soc-ig,.soc-x,.soc-tt,.soc-li){display:none}
+
+/* Counselling photo (counsellor + student, logo-shaped) removed from the contact column at the owner's request (2026-11-23).
+   The cards below it move up, so no empty space is left. */
+.contact .counselart{display:none}
+
+/* destinations.html only: the six destination photos under "Where would you like to study?" arranged in the Independent Education logo shape (img/destinations-logo.webp, owner request 2026-11-24). Country card photos are unchanged. */
+#destinations .desthero .unifig{max-width:520px;width:100%;filter:drop-shadow(0 16px 22px rgba(16,33,63,.16))}
+#destinations .desthero .unifig img{border-radius:0;box-shadow:none;aspect-ratio:1/1}
+@media (min-width:900px){#destinations .desthero{grid-template-columns:minmax(0,1fr) minmax(0,520px);align-items:center;gap:40px}}
+@media (max-width:899px){#destinations .desthero .unifig{margin:0 auto}}
+
+/* Footer: tagline beside the logo, three rows (added by motion.js, owner request 2026-11-24) */
+footer .ie-flogo{display:flex;align-items:center;gap:18px}
+footer .ie-flogo>img{flex:0 0 auto}
+footer .fbrand .ie-ftag{margin:0;max-width:none;opacity:1;color:#fff;font-family:var(--display);font-weight:600;font-size:1.25rem;line-height:1.2;letter-spacing:.02em;text-transform:uppercase;white-space:nowrap}
+@media (max-width:380px){footer .ie-flogo{gap:14px}footer .fbrand .ie-ftag{font-size:.98rem}}
+
+/* Home page reel above the hero (added by motion.js, owner request 2026-11-24) */
+.ie-reel{--rl-accent:var(--sun);position:relative;overflow:hidden;background:#0a1428;color:#fff;height:clamp(440px,72vh,700px);isolation:isolate}
+.ie-rl-stage,.ie-rl-s,.ie-rl-shade{position:absolute;inset:0}
+.ie-rl-s{opacity:0;transition:opacity .45s ease;z-index:0}
+.ie-rl-s.was-on{z-index:1;opacity:0}
+.ie-rl-s.is-on{opacity:1;z-index:2}
+.ie-rl-s img{width:100%;height:100%;object-fit:cover;display:block;transform:scale(1.04);transform-origin:60% 50%}
+.ie-rl-s.alt img{transform-origin:35% 55%}
+.ie-rl-s.is-on img{animation:ieRlKb 3.4s ease-out both}
+@keyframes ieRlKb{from{transform:scale(1.12) translate3d(0,1%,0)}to{transform:scale(1.02) translate3d(0,0,0)}}
+.ie-rl-shade{z-index:3;background:linear-gradient(90deg,rgba(8,16,34,.86) 0%,rgba(8,16,34,.62) 38%,rgba(8,16,34,.12) 72%,rgba(8,16,34,0) 100%),linear-gradient(0deg,rgba(8,16,34,.75) 0%,rgba(8,16,34,0) 42%)}
+.ie-rl-copy{position:relative;z-index:5;height:100%;display:flex;flex-direction:column;justify-content:center;padding-bottom:64px}
+.ie-reel .ie-rl-tag{display:flex;align-items:center;gap:10px;margin:0 0 18px;font-family:var(--display);font-weight:600;font-size:.82rem;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.92)}
+.ie-rl-mark{display:inline-grid;grid-template-columns:9px 9px;grid-template-rows:9px 9px;gap:2px}
+.ie-rl-mark i{display:block}
+.ie-rl-mark i:nth-child(1){grid-row:1/3;background:var(--sun);border-radius:9px 2px 9px 2px}
+.ie-rl-mark i:nth-child(2){background:var(--green);border-radius:2px 6px 2px 2px}
+.ie-rl-mark i:nth-child(3){background:var(--blue);border-radius:2px 2px 2px 6px}
+.ie-reel .ie-rl-eye{margin:0;font-family:var(--display);font-weight:500;font-size:clamp(1.05rem,1.6vw,1.35rem);color:rgba(255,255,255,.85)}
+.ie-rl-namebox{overflow:hidden;font-size:clamp(2.6rem,7.2vw,6rem);line-height:1;padding:.06em 0 .3em;margin:2px 0 .1em}
+.ie-reel .ie-rl-name{display:inline-block;color:#fff;text-decoration:none;font-family:var(--display);font-weight:800;font-size:1em;line-height:1;letter-spacing:-.02em;text-shadow:0 4px 30px rgba(0,0,0,.35);position:relative}
+.ie-reel .ie-rl-name::after{content:"";position:absolute;left:2px;bottom:-.2em;height:.08em;min-height:5px;width:1.4em;border-radius:99px;background:var(--rl-accent);transition:background .6s}
+.ie-reel .ie-rl-name.in{animation:ieRlName .45s cubic-bezier(.2,.8,.2,1) both}
+.ie-reel .ie-rl-name.in::after{animation:ieRlBar .5s .1s cubic-bezier(.2,.8,.2,1) both}
+@keyframes ieRlName{from{transform:translate3d(0,105%,0);opacity:0}to{transform:none;opacity:1}}
+@keyframes ieRlBar{from{width:0}to{width:1.4em}}
+.ie-reel .ie-rl-name:hover,.ie-reel .ie-rl-name:focus-visible{text-decoration:underline;text-decoration-thickness:.06em;text-underline-offset:.12em}
+.ie-rl-cta{align-self:flex-start}
+.ie-rl-ctl{position:absolute;left:0;right:0;bottom:22px;z-index:6;display:flex;align-items:center;gap:14px}
+.ie-rl-dots{display:flex;gap:5px;flex:1;max-width:600px}
+.ie-rl-dot{flex:1;min-width:0;height:24px;padding:10px 0;border:0;background:none;cursor:pointer}
+.ie-rl-dot i{display:block;height:4px;border-radius:99px;background:rgba(255,255,255,.28);position:relative;overflow:hidden}
+.ie-rl-dot i::after{content:"";position:absolute;inset:0 auto 0 0;width:0;background:#fff;border-radius:inherit}
+.ie-rl-dot.is-done i::after{width:100%;background:rgba(255,255,255,.7)}
+.ie-rl-dot.is-on i::after{width:100%;background:var(--rl-accent)}
+.ie-reel.is-playing .ie-rl-dot.is-on i::after{animation:ieRlProg 2.6s linear both}
+@keyframes ieRlProg{from{width:0}to{width:100%}}
+.ie-rl-dot:focus-visible{outline:2px solid #fff;outline-offset:2px;border-radius:4px}
+.ie-rl-pp{flex:0 0 auto;width:40px;height:40px;border-radius:50%;border:1.5px solid rgba(255,255,255,.55);background:rgba(8,16,34,.35);color:#fff;cursor:pointer;display:grid;place-items:center;backdrop-filter:blur(4px)}
+.ie-rl-pp:hover{background:rgba(255,255,255,.15)}
+.ie-rl-pp:focus-visible{outline:2px solid #fff;outline-offset:3px}
+.ie-rl-pp .pa{width:10px;height:12px;border-left:3px solid #fff;border-right:3px solid #fff}
+.ie-rl-pp .pl{display:none;width:0;height:0;border-left:11px solid #fff;border-top:7px solid transparent;border-bottom:7px solid transparent;margin-left:3px}
+.ie-reel.is-paused .ie-rl-pp .pa{display:none}
+.ie-reel.is-paused .ie-rl-pp .pl{display:block}
+@media (max-width:699px){
+  .ie-reel{height:clamp(420px,74vh,600px)}
+  .ie-rl-shade{background:linear-gradient(0deg,rgba(8,16,34,.9) 0%,rgba(8,16,34,.55) 45%,rgba(8,16,34,.15) 100%)}
+  .ie-rl-copy{justify-content:flex-end;padding-bottom:86px}
+  .ie-reel .ie-rl-tag{font-size:.7rem;letter-spacing:.14em;margin-bottom:12px}
+  .ie-rl-ctl{bottom:auto;top:14px}
+  .ie-rl-dots{max-width:none}
+}
+@media (prefers-reduced-motion:reduce){
+  .ie-rl-s{transition:opacity .6s ease}.ie-rl-s.is-on img,.ie-reel .ie-rl-name.in,.ie-reel .ie-rl-name.in::after,.ie-reel .ie-rl-eye.in,.ie-reel .ie-rl-cta.in{animation:none}
+}
+/* Reel: story slides (counsellor, university, events, departure) */
+.ie-reel .ie-rl-eye.in{animation:ieRlUp .4s .04s cubic-bezier(.2,.8,.2,1) both}
+.ie-reel .ie-rl-cta.in{animation:ieRlUp .4s .14s cubic-bezier(.2,.8,.2,1) both}
+@keyframes ieRlUp{from{transform:translate3d(0,12px,0);opacity:0}to{transform:none;opacity:1}}
+.ie-reel.is-story.is-long .ie-rl-namebox{font-size:clamp(2.2rem,5.4vw,4.6rem)}
+.ie-reel.is-story .ie-rl-name{max-width:12ch}
+.ie-reel.is-story .ie-rl-eye{color:var(--rl-accent);font-weight:600;letter-spacing:.01em}
+@media (min-width:700px){
+  .ie-rl-shade{transition:opacity .65s}
+}
+@media (max-width:699px){.ie-reel.is-story.is-long .ie-rl-namebox{font-size:clamp(2rem,9vw,2.6rem)}.ie-rl-dots{gap:3px}}
+/* Reel: big slide title removed at owner request (2026-11-24); do not re-add */
+.ie-reel .ie-rl-namebox{display:none}
+/* small line under the tag removed on every slide too (owner request) */
+.ie-reel .ie-rl-eye{display:none}
+.ie-reel .ie-rl-tag{margin-bottom:22px}
+/* reel button removed on every slide (owner request 2026-11-24); do not re-add */
+.ie-reel .ie-rl-cta{display:none}
+/* reel progress dashes hidden (owner request 2026-11-24); pause button keeps its place; do not re-add */
+.ie-reel .ie-rl-dots{visibility:hidden}
+/* reel pause button hidden too (owner request 2026-11-24); do not re-add */
+.ie-reel .ie-rl-pp{display:none}
+/* home hero orange tile: 'Dhaka · Study abroad guidance' line hidden (owner request 2026-11-24); do not re-add */
+.lhero .lt-o > .eyebrow{display:none}
+/* home hero tiles: brand colours kept (owner: do not change them); a gentle same-colour light-to-shade gradient and a soft
+   coloured glow make the flat blocks easier on the eyes (owner request 2026-11-24) */
+.lhero .lt-o,.lhero .lt-g{background-image:linear-gradient(160deg,rgba(255,255,255,.16),rgba(255,255,255,0) 55%,rgba(16,33,63,.10))}
+.lhero .lt-o{box-shadow:0 0 0 1px rgba(255,255,255,.06),0 24px 60px -22px rgba(255,145,77,.45)}
+.lhero .lt-g{box-shadow:0 24px 60px -22px rgba(126,217,87,.35)}
+/* home hero orange box removed from view (owner request 2026-11-24); its heading and text stay in the page for
+   search engines and screen readers only (visually hidden), its buttons are removed. Green planner + office photo share the row. */
+.lhero .lt-o{position:absolute!important;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0 0 0 0);clip-path:inset(50%);white-space:nowrap;border:0;box-shadow:none}
+.lhero .lt-o::after{display:none}
+.lhero .lt-o .ctas{display:none}
+@media (min-width:981px){.lhero .lgrid{grid-template-columns:minmax(0,5fr) minmax(0,6fr);grid-template-rows:auto;align-items:stretch}}
+.lhero .lt-b img{object-position:28% 50%}
+/* Home hero: headline at half its original size (owner request) */
+.lhero .lt-o h1{font-size:clamp(1.2rem,2.4vw,2.2rem);line-height:1.12;max-width:24ch}
+/* reel tag moved to the bottom (footer) of the reel video (owner) */
+.ie-reel .ie-rl-copy{position:absolute;top:0;bottom:0;left:0;right:0;margin:0 auto;height:auto;justify-content:flex-end;padding-bottom:34px}
+.ie-reel .ie-rl-tag{margin:0}
+/* phones: keep the tag above the floating chat buttons */
+@media (max-width:699px){.ie-reel .ie-rl-copy{padding-bottom:84px}}
+/* reel footer mark: 100% bigger than the tag text, i.e. 2x the font size (owner) */
+.ie-reel .ie-rl-tag{gap:12px}
+.ie-reel .ie-rl-mark{grid-template-columns:.95em .95em;grid-template-rows:.95em .95em;gap:.1em}
+.ie-reel .ie-rl-mark i:nth-child(1){border-radius:.95em .2em .95em .2em}
+.ie-reel .ie-rl-mark i:nth-child(2){border-radius:.2em .6em .2em .2em}
+.ie-reel .ie-rl-mark i:nth-child(3){border-radius:.2em .2em .2em .6em}
+.ie-reel .ie-rl-shade{display:none}
+.ie-reel{height:clamp(536px,calc(72vh + 96px),796px)}
+@media (max-width:699px){.ie-reel{height:clamp(516px,calc(74vh + 96px),696px)}}
+
+/* WhatsApp numbers in the contact list arranged as tidy buttons (owner request, 2026-11-25).
+   Same four numbers and links; only the layout changes. */
+.soc-wa>div{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}
+.soc-wa>div>small{grid-column:1/-1;margin-bottom:-2px}
+.soc-wa>div>br{display:none}
+.soc-wa>div>a{display:flex;align-items:center;justify-content:center;gap:6px;min-height:40px;padding:8px 10px;border-radius:999px;background:rgba(37,211,102,.12);border:1px solid rgba(37,211,102,.35);color:#0f6b3a;font-weight:600;font-size:.92rem;text-decoration:none;white-space:nowrap;font-variant-numeric:tabular-nums;transition:background .2s,border-color .2s,transform .2s}
+.soc-wa>div>a::before{content:"";width:8px;height:8px;border-radius:50%;background:#25d366;flex:none}
+.soc-wa>div>a:hover{background:rgba(37,211,102,.22);border-color:#25d366;transform:translateY(-1px)}
+.soc-wa>div>a:focus-visible{outline:2px solid #1d6fb0;outline-offset:2px}
+@media (max-width:420px){.soc-wa>div{grid-template-columns:1fr}}
+
+/* Four mobile numbers in the contact list arranged as a tidy 2x2 grid (owner request, 2026-11-25).
+   Same numbers and copy buttons; only the layout changes. */
+.contact .info{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(210px,100%),1fr));gap:14px 10px;align-content:start}
+.contact .info>*{grid-column:1/-1}
+.contact .info>.soc-ph{grid-column:auto;gap:10px;padding:10px 12px;position:relative}
+.contact .info>.soc-ph .sic{width:36px;height:36px;border-radius:12px}
+.contact .info>.soc-ph .sic .si{width:18px;height:18px}
+.contact .info>.soc-ph>div{min-width:0}
+.contact .info>.soc-ph>div>span{display:block;font-weight:600;font-size:.95rem;white-space:nowrap;font-variant-numeric:tabular-nums;overflow:hidden;text-overflow:ellipsis}
+.contact .info>.soc-ph .copy{position:absolute;top:8px;right:8px;padding:4px 8px;font-size:.72rem}
+
+/* Cost of living page (owner request 2026-11-25), in the site's card style. */
+#se-cost .col-exp{grid-template-columns:repeat(auto-fill,minmax(min(220px,100%),1fr))}
+#se-cost .col-steps{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(auto-fill,minmax(min(300px,100%),1fr));gap:16px;counter-reset:cs}
+#se-cost .col-steps>li{counter-increment:cs;position:relative;padding-left:72px}
+#se-cost .col-steps>li::before{content:counter(cs);position:absolute;left:20px;top:20px;width:36px;height:36px;border-radius:12px 4px 12px 4px;background:var(--sun);color:#fff;font-family:var(--display);font-weight:700;display:grid;place-items:center}
+#se-cost .col-steps h3{margin:0 0 6px;font-size:1.05rem;color:var(--ink)}
+#se-cost .col-steps p{margin:0}
+#se-cost .col-intro{margin:0 0 16px;max-width:70ch}
+#se-cost .col-grid{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(auto-fill,minmax(min(220px,100%),1fr));gap:14px}
+#se-cost .col-grid>li{display:flex;flex-direction:column;gap:4px;min-width:0}
+#se-cost .col-c{font-weight:600;color:var(--ink)}
+#se-cost .col-v{font-family:var(--display);font-weight:800;font-size:1.6rem;color:var(--ink-2);font-variant-numeric:tabular-nums;line-height:1.15}
+#se-cost .col-grid p{margin:4px 0 0;font-size:.92rem}
+#se-cost .col-grid a{margin-top:auto;padding-top:10px;font-size:.85rem;font-weight:600}
+#se-cost .col-grid>li.col-other{border-style:dashed;background:transparent}
+#se-cost .col-grid+.note{margin-top:14px}
+#se-cost .col-sum{margin-top:36px}
+#se-cost .col-sum h3{margin-top:0}

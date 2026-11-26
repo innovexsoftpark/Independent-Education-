@@ -1,0 +1,85 @@
+INDEPENDENT EDUCATION - ADVANCED MARKETING TOOLS
+================================================
+
+Everything below is OFF until you paste an ID into IE_MARKETING near the
+js/site.js (search for "const IE_MARKETING"). Tracking tools only
+load after a visitor clicks "Accept" on the cookie notice.
+
+Check each platform's current help pages when setting up: their menus and
+rules change often, and the steps below may be out of date.
+
+1. ENQUIRY CAPTURE (most important)
+   LEAD_ENDPOINT: "/server-tracking/lead.php"
+   - Every "Book counselling" form in the chat box is saved to a CSV file
+     (opens in Excel / Google Sheets) and emailed to your office.
+   - Settings: the 'leads' section of ie-tracking-config.php.
+   - If the server fails, the visitor still gets the "Send on WhatsApp" button,
+     so no enquiry is lost.
+   - Spam protection: hidden trap field, 5 enquiries per IP per hour,
+     only accepts requests from your own domain.
+   - Many shared hosts block PHP mail(). If emails don't arrive, check the
+     CSV file, and ask your host about SMTP.
+
+2. GOOGLE ADS
+   GOOGLE_ADS_ID: "AW-XXXXXXXXX"
+   GOOGLE_ADS_LEAD_LABEL: the label of a "Submit lead form" conversion action.
+   - Sends a conversion every time someone submits the enquiry form.
+   - Enhanced conversions: the email/phone are hashed by Google's tag before
+     sending. Turn on "Enhanced conversions for web" in the conversion settings.
+
+3. TIKTOK ADS
+   TIKTOK_PIXEL_ID: from TikTok Ads Manager > Assets > Events > Web events.
+   - Sends PageView, ViewContent, Search, Contact and SubmitForm (lead).
+   - Lead email/phone are SHA-256 hashed in the browser (advanced matching).
+
+4. LINKEDIN ADS
+   LINKEDIN_PARTNER_ID: Campaign Manager > Analyze > Insight Tag.
+   LINKEDIN_LEAD_CONVERSION_ID: create a conversion with the "event-specific"
+   (JavaScript) method and paste its ID.
+
+5. MICROSOFT CLARITY (free heatmaps and session recordings)
+   CLARITY_ID: from clarity.microsoft.com > your project > Settings.
+   - Shows where people click, how far they scroll, and where they get stuck.
+   - The enquiry forms are masked, so what visitors type is not recorded.
+
+6. META (FACEBOOK / INSTAGRAM) ADVANCED MATCHING
+   With SERVER_ENDPOINT on, leads now include hashed email, phone and name
+   in the Conversions API event, which usually improves ad matching.
+   Set ENHANCED_MATCHING:false to switch this off for every platform.
+
+7. ENGAGEMENT EVENTS (GA4)
+   scroll_depth (50% and 90%) and engaged_visit (60 seconds on the page).
+   Mark engaged_visit as a key event in GA4 if you want to optimise for it.
+
+8. REFERRAL LINKS
+   Give students, agents or partners a personal link:
+     https://www.YOUR-DOMAIN/?ref=nadia
+   Enquiries from that visit show "Heard about us via: referral: nadia"
+   (in WhatsApp messages, emails and the CSV file).
+   Works together with UTM links, e.g.
+     https://www.YOUR-DOMAIN/?utm_source=facebook&utm_medium=paid&utm_campaign=uk-jan-intake
+
+9. EXIT-INTENT NUDGE
+   A small "Planning to study abroad?" card appears once per visit, either
+   when a desktop visitor moves to leave the page or after 45 seconds of
+   reading. It opens the enquiry form. It never shows after an enquiry is sent.
+
+Privacy: the privacy policy on the website already describes these tools.
+If you add a tool not listed here, update the policy too.
+
+-----------------------------------------------------------------------
+NEW IN NOVEMBER 2026 (full steps: server-tracking/NEW-TOOLS-SETUP.txt)
+- Microsoft Advertising (Bing Ads) UET tag ........ MICROSOFT_UET_ID
+- Bing Webmaster Tools verification ............... BING_SITE_VERIFICATION
+- X (Twitter) Ads pixel + lead/contact events ..... X_PIXEL_ID, X_LEAD_EVENT_ID, X_CONTACT_EVENT_ID
+- Full campaign attribution (UTM + ad click IDs, first and last touch), saved with every enquiry
+- Email newsletter sign-up (Brevo / Mailchimp / n8n) NEWSLETTER_ENDPOINT + subscribe.php
+- Refer-a-friend personal links ................... automatic
+- Online appointment booking button ............... BOOKING_URL
+- Core Web Vitals (page speed) to GA4 / GTM ....... WEB_VITALS
+- Tawk.to live chat (Live chat tab in the chat box) ... TAWK_PROPERTY_ID, TAWK_WIDGET_ID, TAWK_LOAD
+
+LEAD FUNNEL (visitors -> lead capture -> CRM -> follow-up -> conversion)
+- Full map of every tool by funnel stage: server-tracking/LEAD-FUNNEL.txt
+- Lead scoring Hot/Warm/Cold (ie-scoring.php), Zoho CRM (ie-zoho.php),
+  instant thank-you email, offline conversions to Meta + GA4 (convert.php)

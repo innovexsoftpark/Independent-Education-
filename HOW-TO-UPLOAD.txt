@@ -1,0 +1,43 @@
+HOW TO PUT THE INDEPENDENT EDUCATION WEBSITE ONLINE
+====================================================
+
+1. Buy a domain (e.g. independenteducation.com.bd or .com) and hosting
+   (any cPanel hosting with PHP 8 works).
+2. Upload EVERYTHING in this folder to public_html, keeping the img folder
+   (EXCEPT the n8n-automation-DO-NOT-UPLOAD folder - DO NOT UPLOAD THE n8n
+   files to your website; import them into n8n instead):
+      index.html, .htaccess, favicon.ico, robots.txt, sitemap.xml, img/,
+      server-tracking/
+   (.htaccess starts with a dot and may be hidden - turn on "show hidden
+   files" in cPanel File Manager. It adds compression, caching and HTTPS.)
+3. Replace "www.your-domain.com" in robots.txt and sitemap.xml with your domain.
+4. In index.html, near the top, add your canonical link (see the comment there),
+   and change og:image to the full address, e.g.
+      https://www.YOUR-DOMAIN/img/og-share.jpg
+5. Turn on free HTTPS (SSL) in your hosting control panel.
+6. Submit your site in Google Search Console and add sitemap.xml there.
+7. Optional: tracking and enquiry capture - see MARKETING-TOOLS.txt, server-tracking/META-TOOLS-PLAYBOOK.txt (all 35 Meta tools), server-tracking/META-SETUP.txt, server-tracking/WHATSAPP-SETUP.txt, server-tracking/WHATSAPP-TOOLS.txt, server-tracking/INSTAGRAM-TOOLS.txt, server-tracking/LEAD-CAPTURE-TOOLS.txt, server-tracking/GOOGLE-TOOLS-PLAYBOOK.txt (all 52 Google tools), server-tracking/GOOGLE-SETUP.txt, server-tracking/LINKEDIN-SETUP.txt, server-tracking/TIKTOK-SETUP.txt, n8n-automation-DO-NOT-UPLOAD/N8N-SETUP.txt,
+   server-tracking/PIXEL-SETUP.txt and README.txt.
+   (server-tracking/track.php goes in public_html too; keep the config file
+   above public_html.)
+
+Note: the "Ask our AI assistant" chat only works inside the Claude preview.
+On your own hosting it hides itself automatically; the WhatsApp and
+Messenger chat buttons keep working.
+
+APP AND OFFLINE FILES (added November 2026)
+- Upload sw.js and offline.html to the same top folder as index.html.
+- They make the site installable as an app ("Install our app" button in the footer,
+  shown only in browsers that support it) and keep it working on a weak connection.
+- They only start working on the real website over https, not in a preview.
+- After you change the website later, open sw.js and change VERSION = 'ie-v1'
+  to 'ie-v2' (and so on) so returning visitors get the new version.
+
+SEO FILES (added November 2026)
+- Upload robots.txt, sitemap.xml, llms.txt and the IndexNow key file (the .txt
+  file with a long random name) to the same top folder as index.html.
+- Before uploading, replace www.your-domain.com with your real domain in
+  index.html, robots.txt, sitemap.xml and llms.txt.
+- SEO-GUIDE.txt explains Google Search Console, Bing, Google Business Profile,
+  keywords and content. You don't need to upload it (if you do, .htaccess
+  blocks it from the public).
